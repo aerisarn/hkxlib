@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -24,6 +22,7 @@ import org.tes.hkx.lib.HkpackfileType;
 import org.tes.hkx.lib.HksectionType;
 import org.tes.hkx.lib.ext.hkRootLevelContainer;
 import org.tes.hkx.model.visitors.HkTreeReferencedList;
+import org.tes.hkx.model.visitors.RenumberingVisitor;
 
 public class HkFile {
 
@@ -35,6 +34,8 @@ public class HkFile {
 	JAXBElement<HkpackfileType> wrapper = null;
 	hkRootLevelContainer root;
 	ArrayList<HkobjectType> variants;
+	
+	protected int counter = 0;
 
 	private void setupContext() throws NegativeArraySizeException, JAXBException {
 		Reflections reflections = new Reflections("org.tes.hkx.lib.ext", new SubTypesScanner(false));
@@ -105,12 +106,12 @@ public class HkFile {
 	}
 
 	public void save() throws JAXBException, IOException {
-		setKeys();
+		out();
 		marshaller.marshal(wrapper, new FileWriter(thisFile));
 	}
 
 	public void save(File f) throws JAXBException, IOException {
-		setKeys();
+		out();
 		marshaller.marshal(wrapper, new FileWriter(f));
 	}
 
@@ -137,86 +138,21 @@ public class HkFile {
 	}
 
 	public void out() throws JAXBException {
-		setKeys();
-		// marshaller.marshal(wrapper, System.out);
-
+		removeUnreferenced();
+		root.accept(new RenumberingVisitor(counter));
+		hkx.setToplevelobject(root.getKey());
 	}
-
-	private int counter;
-
-	private void setKeys() {
+	
+	private void removeUnreferenced() {
 		List<HkobjectType> referenced = root.accept(new HkTreeReferencedList());
-		// reset and remove unreferenced
 		List<HkobjectType> unreferenced = new ArrayList<>();
 		for (HkobjectType o : hkx.getHksection().getHkobject()) {
-			o.setKey("-1");
 			if (!referenced.contains(o)) {
-				System.out.println("Removing Unreferenced " + o);
 				unreferenced.add(o);
-				// hkx.getHksection().getHkobject().remove(o);
 			}
 		}
 		for (HkobjectType o : unreferenced) {
 			hkx.getHksection().getHkobject().remove(o);
-		}
-
-		// remove unreferenced
-
-		counter = 100;
-
-		try {
-			visit(root);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		hkx.setToplevelobject(root.getKey());
-
-	}
-
-	private void visit(Object obj) throws Exception {
-
-		if (obj instanceof HkobjectType) {
-			HkobjectType hkobj = (HkobjectType) obj;
-			if (hkobj.getKey().equals("-1"))
-				hkobj.setKey("#" + String.format("%04d", counter++));
-		}
-
-		for (Method m : obj.getClass().getMethods()) {
-
-			if (m.getName().toLowerCase().contains("hkparam"))
-				continue;
-
-			Type c = m.getReturnType();
-			String methodName = m.getName();
-
-			// Type c1 = m.getParameterTypes()[0];
-			if (methodName.contains("get") && (c.toString().contains("HkobjectType") || c.toString().contains("Unnamed")
-					|| c.toString().contains("hk") || c.toString().contains("BS"))) {
-
-				// Array
-				if (m.getParameterTypes().length > 0 && m.getParameterTypes()[0].toString().contains("int")) {
-					// get num method
-					String getNumMethodName = "getNum" + methodName.substring(3, methodName.length() - 2);
-
-					Method getNumElems = obj.getClass().getDeclaredMethod(getNumMethodName, null);
-					Integer numElems = (Integer) getNumElems.invoke(obj);
-
-					for (int i = 0; i < numElems; i++) {
-						Object out = m.invoke(obj, i);
-						if (out != null) {
-							visit(out);
-						}
-					}
-				} else {
-					// invoke method
-					Object out = m.invoke(obj);
-					if (out != null) {
-						visit(out);
-					}
-				}
-			}
 		}
 	}
 

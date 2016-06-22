@@ -32,53 +32,8 @@
       <hkobject name="#0026" class="hkbCharacterStringData" signature="0x655b42bc">
          <hkparam name="deformableSkinNames" numelements="0"></hkparam>
          <hkparam name="rigidSkinNames" numelements="0"></hkparam>
-         <hkparam name="animationNames" numelements="46">
-            <hkcstring>animations\backward.hkx</hkcstring>
-            <hkcstring>animations\casttouch.hkx</hkcstring>
-            <hkcstring>animations\fastbackward.hkx</hkcstring>
-            <hkcstring>animations\fastforward.hkx</hkcstring>
-            <hkcstring>animations\forward.hkx</hkcstring>
-            <hkcstring>animations\getupfacedown.hkx</hkcstring>
-            <hkcstring>animations\getupfaceup.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackbackpower.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackequip.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackforwardpower.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackleft.hkx</hkcstring>
-            <hkcstring>animations\handtohandattacklefta.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackleftb.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackleftpower.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackpower.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackright.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackrighta.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackrightb.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackrightpower.hkx</hkcstring>
-            <hkcstring>animations\handtohandattackunequip.hkx</hkcstring>
-            <hkcstring>animations\handtohandidle.hkx</hkcstring>
-            <hkcstring>animations\handtohandleft.hkx</hkcstring>
-            <hkcstring>animations\handtohandright.hkx</hkcstring>
+         <hkparam name="animationNames" numelements="1">
             <hkcstring>animations\idle.hkx</hkcstring>
-            <hkcstring>animations\idledrool.hkx</hkcstring>
-            <hkcstring>animations\idlescratch.hkx</hkcstring>
-            <hkcstring>animations\idleslack.hkx</hkcstring>
-            <hkcstring>animations\idlestamp.hkx</hkcstring>
-            <hkcstring>animations\left.hkx</hkcstring>
-            <hkcstring>animations\recoil.hkx</hkcstring>
-            <hkcstring>animations\right.hkx</hkcstring>
-            <hkcstring>animations\stagger.hkx</hkcstring>
-            <hkcstring>animations\turnleft.hkx</hkcstring>
-            <hkcstring>animations\turnright.hkx</hkcstring>
-            <hkcstring>animations\twohandattackbackpower.hkx</hkcstring>
-            <hkcstring>animations\twohandattackequip.hkx</hkcstring>
-            <hkcstring>animations\twohandattackforwardpower.hkx</hkcstring>
-            <hkcstring>animations\twohandattackleft.hkx</hkcstring>
-            <hkcstring>animations\twohandattackleftpower.hkx</hkcstring>
-            <hkcstring>animations\twohandattackpower.hkx</hkcstring>
-            <hkcstring>animations\twohandattackright.hkx</hkcstring>
-            <hkcstring>animations\twohandattackrightpower.hkx</hkcstring>
-            <hkcstring>animations\twohandattackunequip.hkx</hkcstring>
-            <hkcstring>animations\twohandblockhit.hkx</hkcstring>
-            <hkcstring>animations\twohandblockidle.hkx</hkcstring>
-            <hkcstring>animations\twohandidle.hkx</hkcstring>
          </hkparam>
          <hkparam name="animationFilenames" numelements="0"/>
          <hkparam name="characterPropertyNames" numelements="0"/>
