@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hkpackfile classversion="8" contentsversion="hk_2010.2.0-r1" toplevelobject="#0022">
+   <hksection name="__data__">
+      <hkobject name="#0023" class="hkbCharacterData" signature="0x300d6808">
+         <hkparam name="characterControllerInfo">
+            <hkobject>
+               <hkparam name="capsuleHeight">1.700000</hkparam>
+               <hkparam name="capsuleRadius">0.400000</hkparam>
+               <hkparam name="characterControllerCinfo">1</hkparam>
+            </hkobject>
+         </hkparam>
+         <hkparam name="modelUpMS">(0.000000 0.000000 1.000000 0.000000)</hkparam>
+         <hkparam name="modelForwardMS">(1.000000 0.000000 0.000000 0.000000)</hkparam>
+         <hkparam name="modelRightMS">(-0.000000 -1.000000 -0.000000 0.000000)</hkparam>
+         <hkparam name="characterPropertyInfos" numelements="0"/>
+         <hkparam name="numBonesPerLod" numelements="0"/>
+         <hkparam name="characterPropertyValues">#0024</hkparam>
+         <hkparam name="handIkDriverInfo">null</hkparam>
+         <hkparam name="stringData">#0026</hkparam>
+         <hkparam name="mirroredSkeletonInfo">#0025</hkparam>
+         <hkparam name="scale">1.000000</hkparam>
+      </hkobject>
+      <hkobject name="#0024" class="hkbVariableValueSet" signature="0x27812d8d">
+         <hkparam name="wordVariableValues" numelements="0"/>
+         <hkparam name="quadVariableValues" numelements="0"></hkparam>
+         <hkparam name="variantVariableValues" numelements="0"/>
+      </hkobject>
+      <hkobject name="#0025" class="hkbMirroredSkeletonInfo" signature="0xc6c2da4f">
+         <hkparam name="mirrorAxis">(1.000000 0.000000 0.000000 0.000000)</hkparam>
+         <hkparam name="bonePairMap" numelements="0"></hkparam>
+      </hkobject>
+      <hkobject name="#0026" class="hkbCharacterStringData" signature="0x655b42bc">
+         <hkparam name="deformableSkinNames" numelements="0"></hkparam>
+         <hkparam name="rigidSkinNames" numelements="0"></hkparam>
+         <hkparam name="animationNames" numelements="46">
+            <hkcstring>animations\backward.hkx</hkcstring>
+            <hkcstring>animations\casttouch.hkx</hkcstring>
+            <hkcstring>animations\fastbackward.hkx</hkcstring>
+            <hkcstring>animations\fastforward.hkx</hkcstring>
+            <hkcstring>animations\forward.hkx</hkcstring>
+            <hkcstring>animations\getupfacedown.hkx</hkcstring>
+            <hkcstring>animations\getupfaceup.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackbackpower.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackequip.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackforwardpower.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackleft.hkx</hkcstring>
+            <hkcstring>animations\handtohandattacklefta.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackleftb.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackleftpower.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackpower.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackright.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackrighta.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackrightb.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackrightpower.hkx</hkcstring>
+            <hkcstring>animations\handtohandattackunequip.hkx</hkcstring>
+            <hkcstring>animations\handtohandidle.hkx</hkcstring>
+            <hkcstring>animations\handtohandleft.hkx</hkcstring>
+            <hkcstring>animations\handtohandright.hkx</hkcstring>
+            <hkcstring>animations\idle.hkx</hkcstring>
+            <hkcstring>animations\idledrool.hkx</hkcstring>
+            <hkcstring>animations\idlescratch.hkx</hkcstring>
+            <hkcstring>animations\idleslack.hkx</hkcstring>
+            <hkcstring>animations\idlestamp.hkx</hkcstring>
+            <hkcstring>animations\left.hkx</hkcstring>
+            <hkcstring>animations\recoil.hkx</hkcstring>
+            <hkcstring>animations\right.hkx</hkcstring>
+            <hkcstring>animations\stagger.hkx</hkcstring>
+            <hkcstring>animations\turnleft.hkx</hkcstring>
+            <hkcstring>animations\turnright.hkx</hkcstring>
+            <hkcstring>animations\twohandattackbackpower.hkx</hkcstring>
+            <hkcstring>animations\twohandattackequip.hkx</hkcstring>
+            <hkcstring>animations\twohandattackforwardpower.hkx</hkcstring>
+            <hkcstring>animations\twohandattackleft.hkx</hkcstring>
+            <hkcstring>animations\twohandattackleftpower.hkx</hkcstring>
+            <hkcstring>animations\twohandattackpower.hkx</hkcstring>
+            <hkcstring>animations\twohandattackright.hkx</hkcstring>
+            <hkcstring>animations\twohandattackrightpower.hkx</hkcstring>
+            <hkcstring>animations\twohandattackunequip.hkx</hkcstring>
+            <hkcstring>animations\twohandblockhit.hkx</hkcstring>
+            <hkcstring>animations\twohandblockidle.hkx</hkcstring>
+            <hkcstring>animations\twohandidle.hkx</hkcstring>
+         </hkparam>
+         <hkparam name="animationFilenames" numelements="0"/>
+         <hkparam name="characterPropertyNames" numelements="0"/>
+         <hkparam name="retargetingSkeletonMapperFilenames" numelements="0"/>
+         <hkparam name="lodNames" numelements="0"/>
+         <hkparam name="mirroredSyncPointSubstringsA" numelements="0"/>
+         <hkparam name="mirroredSyncPointSubstringsB" numelements="0"/>
+         <hkparam name="name">Character01</hkparam>
+         <hkparam name="rigName">assets\skeleton.hkx</hkparam>
+         <hkparam name="ragdollName">assets\skeleton.hkx</hkparam>
+         <hkparam name="behaviorFilename">behaviors\Minotaur_behavior.hkx</hkparam>
+      </hkobject>
+      <hkobject name="#0022" class="hkRootLevelContainer" signature="0x2772c11e">
+         <hkparam name="namedVariants" numelements="1">
+            <hkobject>
+               <hkparam name="name">hkbProjectData</hkparam>
+               <hkparam name="className">hkbProjectData</hkparam>
+               <hkparam name="variant">#0023</hkparam>
+            </hkobject>
+         </hkparam>
+      </hkobject>
+   </hksection>
+</hkpackfile>

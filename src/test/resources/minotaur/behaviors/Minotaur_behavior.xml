@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hkpackfile classversion="8" contentsversion="hk_2010.2.0-r1" toplevelobject="#0100">
+   <hksection name="__data__">
+      <hkobject name="#0105" class="hkbStateMachineStateInfo" signature="0xed7f9d0">
+         <hkparam name="listeners" numelements="0"/>
+         <hkparam name="generator">#0106</hkparam>
+         <hkparam name="name">Play</hkparam>
+         <hkparam name="stateId">0</hkparam>
+         <hkparam name="probability">1.000000</hkparam>
+         <hkparam name="enable">true</hkparam>
+      </hkobject>
+      <hkobject name="#0106" class="hkbClipGenerator" signature="0x333b85b9">
+         <hkparam name="userData">0</hkparam>
+         <hkparam name="name">Clip01</hkparam>
+         <hkparam name="animationName">Animations\idle.hkx</hkparam>
+         <hkparam name="cropStartAmountLocalTime">0.000000</hkparam>
+         <hkparam name="cropEndAmountLocalTime">0.000000</hkparam>
+         <hkparam name="startTime">0.000000</hkparam>
+         <hkparam name="playbackSpeed">1.000000</hkparam>
+         <hkparam name="enforcedDuration">0.000000</hkparam>
+         <hkparam name="userControlledTimeFraction">0.000000</hkparam>
+         <hkparam name="animationBindingIndex">-1</hkparam>
+         <hkparam name="mode">MODE_LOOPING</hkparam>
+         <hkparam name="flags">0</hkparam>
+      </hkobject>
+      <hkobject name="#0104" class="hkbStateMachine" signature="0x816c1dcb">
+         <hkparam name="userData">0</hkparam>
+         <hkparam name="name">IdleBehavior</hkparam>
+         <hkparam name="startStateChooser">null</hkparam>
+         <hkparam name="startStateId">0</hkparam>
+         <hkparam name="returnToPreviousStateEventId">-1</hkparam>
+         <hkparam name="randomTransitionEventId">-1</hkparam>
+         <hkparam name="transitionToNextHigherStateEventId">-1</hkparam>
+         <hkparam name="transitionToNextLowerStateEventId">-1</hkparam>
+         <hkparam name="syncVariableIndex">-1</hkparam>
+         <hkparam name="wrapAroundStateId">-1</hkparam>
+         <hkparam name="maxSimultaneousTransitions">32</hkparam>
+         <hkparam name="startStateMode">START_STATE_MODE_DEFAULT</hkparam>
+         <hkparam name="selfTransitionMode">SELF_TRANSITION_MODE_NO_TRANSITION</hkparam>
+         <hkparam name="states" numelements="1">#0105</hkparam>
+      </hkobject>
+      <hkobject name="#0103" class="hkbBehaviorGraphStringData" signature="0xc713064e">
+         <hkparam name="eventNames" numelements="0"/>
+         <hkparam name="attributeNames" numelements="0"/>
+         <hkparam name="variableNames" numelements="0"/>
+         <hkparam name="characterPropertyNames" numelements="0"/>
+      </hkobject>
+      <hkobject name="#0102" class="hkbBehaviorGraphData" signature="0x95aca5d">
+         <hkparam name="attributeDefaults" numelements="0"></hkparam>
+         <hkparam name="variableInfos" numelements="0"/>
+         <hkparam name="characterPropertyInfos" numelements="0"/>
+         <hkparam name="eventInfos" numelements="0"/>
+         <hkparam name="wordMinVariableValues" numelements="0"/>
+         <hkparam name="wordMaxVariableValues" numelements="0"/>
+         <hkparam name="stringData">#0103</hkparam>
+      </hkobject>
+      <hkobject name="#0101" class="hkbBehaviorGraph" signature="0xb1218f86">
+         <hkparam name="userData">0</hkparam>
+         <hkparam name="name">Minotaur.hkb</hkparam>
+         <hkparam name="variableMode">VARIABLE_MODE_DISCARD_WHEN_INACTIVE</hkparam>
+         <hkparam name="rootGenerator">#0104</hkparam>
+         <hkparam name="data">#0102</hkparam>
+      </hkobject>
+      <hkobject name="#0100" class="hkRootLevelContainer" signature="0x2772c11e">
+         <hkparam name="namedVariants" numelements="1">
+            <hkobject>
+               <hkparam name="name">hkbBehaviorGraph</hkparam>
+               <hkparam name="className">hkbBehaviorGraph</hkparam>
+               <hkparam name="variant">#0101</hkparam>
+            </hkobject>
+         </hkparam>
+      </hkobject>
+   </hksection>
+</hkpackfile>
