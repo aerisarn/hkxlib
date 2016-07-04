@@ -1,18 +1,17 @@
 package org.tes.hkx.model.files;
 
-import java.io.File;
-import java.util.List;
+import javax.xml.bind.JAXBException;
 
-import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.HkpackfileType;
 import org.tes.hkx.lib.ext.Unnamed1;
 import org.tes.hkx.lib.ext.hkaAnimationContainer;
-import org.tes.hkx.lib.ext.hkaSkeleton;
 import org.tes.hkx.model.HkFile;
 
 public class HkAnimationFile extends HkFile {
 
-	public final static Integer startingKey = 39;
+	public static final int animStartingKey = 39;
+	public static final String variantClassName = "Animation Container";
+	public static final String variantName = "Animation Container";
 
 	private void setup() throws Exception {
 		for (Unnamed1 variant : getRoot().getNamedVariants()) {
@@ -21,22 +20,23 @@ public class HkAnimationFile extends HkFile {
 						"Expected object class: hkaAnimationContainer. found: " + variant.getVariant().getClazz());
 			}
 		}
-		counter = startingKey;
 	}
-
-	public HkAnimationFile(File f) throws Exception {
-		super(f);
+	
+	public HkAnimationFile(HkpackfileType source) throws Exception {
+		super(source);
 		setup();
 	}
-
-	public HkAnimationFile(HkpackfileType hkxpackfile, String outFilePath) throws Exception {
-		super(hkxpackfile, outFilePath);
-		setup();
-	}
-
-	public HkAnimationFile(String outFilePath) throws Exception {
-		super(outFilePath);
-		setup();
+	
+	public HkAnimationFile() throws NegativeArraySizeException, JAXBException {
+		Unnamed1 variant = new Unnamed1();
+		variant.setClassName(variantClassName);
+		variant.setName(variantName);
+		hkaAnimationContainer container = new hkaAnimationContainer();
+		variant.setVariant(container);
+		getRoot().addToNamedVariants(variant);
+		getObjects().add(container);
+		startingKey = animStartingKey;
+		resetKeys();
 	}
 
 }

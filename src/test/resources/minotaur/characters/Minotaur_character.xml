@@ -49,8 +49,8 @@
       <hkobject name="#0022" class="hkRootLevelContainer" signature="0x2772c11e">
          <hkparam name="namedVariants" numelements="1">
             <hkobject>
-               <hkparam name="name">hkbProjectData</hkparam>
-               <hkparam name="className">hkbProjectData</hkparam>
+               <hkparam name="name">hkbCharacterData</hkparam>
+               <hkparam name="className">hkbCharacterData</hkparam>
                <hkparam name="variant">#0023</hkparam>
             </hkobject>
          </hkparam>

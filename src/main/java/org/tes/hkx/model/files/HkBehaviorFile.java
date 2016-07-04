@@ -1,18 +1,19 @@
 package org.tes.hkx.model.files;
 
-import java.io.File;
-
 import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.HkpackfileType;
+import org.tes.hkx.lib.ext.Unnamed1;
 import org.tes.hkx.lib.ext.hkbBehaviorGraph;
 import org.tes.hkx.lib.ext.hkbBehaviorGraphData;
 import org.tes.hkx.model.HkFile;
 
 public class HkBehaviorFile extends HkFile {
 
-	public final static Integer startingKey = 100;
+	public static final int behaviorStartingKey = 100;
+	public static final String variantClassName = "hkbBehaviorGraph";
+	public static final String variantName = "hkbBehaviorGraph";
 	
 	hkbBehaviorGraph graph;
 
@@ -23,23 +24,25 @@ public class HkBehaviorFile extends HkFile {
 					+ getRoot().getNamedVariants().iterator().next().getVariant().getClazz());
 		}
 		graph = getTypedObject(variant.getKey());
-		counter = startingKey;
 	}
 
-	public HkBehaviorFile(File f) throws Exception {
-		super(f);
+	public HkBehaviorFile(HkpackfileType source) throws Exception {
+		super(source);
 		setup();
+	}
+	
+	public HkBehaviorFile() throws NegativeArraySizeException, JAXBException {
+		Unnamed1 variant = new Unnamed1();
+		variant.setClassName(variantClassName);
+		variant.setName(variantName);
+		graph = new hkbBehaviorGraph();
+		variant.setVariant(graph);
+		getRoot().addToNamedVariants(variant);
+		getObjects().add(graph);
+		startingKey = behaviorStartingKey;
+		resetKeys();
 	}
 
-	public HkBehaviorFile(HkpackfileType hkxpackfile, String outFilePath) throws Exception {
-		super(hkxpackfile, outFilePath);
-		setup();
-	}
-
-	public HkBehaviorFile(String outFilePath) throws Exception {
-		super(outFilePath);
-		setup();
-	}
 
 	public hkbBehaviorGraph getGraph() {
 		return graph;

@@ -1,19 +1,19 @@
 package org.tes.hkx.model.files;
 
-import java.io.File;
+import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.HkpackfileType;
-import org.tes.hkx.lib.ext.hkbBehaviorGraph;
+import org.tes.hkx.lib.ext.Unnamed1;
 import org.tes.hkx.lib.ext.hkbCharacterData;
 import org.tes.hkx.lib.ext.hkbCharacterStringData;
-import org.tes.hkx.lib.ext.hkbProjectData;
-import org.tes.hkx.lib.ext.hkbProjectStringData;
 import org.tes.hkx.model.HkFile;
 
 public class HkCharacterFile extends HkFile {
 
-	public final static Integer startingKey = 22;
+	public final static Integer characterStartingKey = 22;
+	public static final String variantClassName = "hkbCharacterData";
+	public static final String variantName = "hkbCharacterData";
 	
 	hkbCharacterData data;
 
@@ -24,22 +24,23 @@ public class HkCharacterFile extends HkFile {
 					+ getRoot().getNamedVariants().iterator().next().getVariant().getClazz());
 		}
 		data = getTypedObject(variant.getKey());
-		counter = startingKey;
 	}
 
-	public HkCharacterFile(File f) throws Exception {
-		super(f);
+	public HkCharacterFile(HkpackfileType source) throws Exception {
+		super(source);
 		setup();
 	}
-
-	public HkCharacterFile(HkpackfileType hkxpackfile, String outFilePath) throws Exception {
-		super(hkxpackfile, outFilePath);
-		setup();
-	}
-
-	public HkCharacterFile(String outFilePath) throws Exception {
-		super(outFilePath);
-		setup();
+	
+	public HkCharacterFile() throws NegativeArraySizeException, JAXBException {
+		Unnamed1 variant = new Unnamed1();
+		variant.setClassName(variantClassName);
+		variant.setName(variantName);
+		data = new hkbCharacterData();
+		variant.setVariant(data);
+		getRoot().addToNamedVariants(variant);
+		getObjects().add(data);
+		startingKey = characterStartingKey;
+		resetKeys();
 	}
 
 	public hkbCharacterData getData() {
