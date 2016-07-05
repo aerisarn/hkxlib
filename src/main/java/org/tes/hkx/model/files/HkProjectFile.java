@@ -14,6 +14,7 @@ public class HkProjectFile extends HkFile {
 	public final static Integer projectStartingKey = 8;
 	public static final String variantClassName = "hkbProjectData";
 	public static final String variantName = "hkbProjectData";
+	private String fileName;
 
 	hkbProjectData data;
 
@@ -29,6 +30,11 @@ public class HkProjectFile extends HkFile {
 	public HkProjectFile(HkpackfileType source) throws Exception {
 		super(source);
 		setup();
+	}
+	
+	public HkProjectFile(String name) throws Exception {
+		this();
+		setFileName(name);
 	}
 
 	public HkProjectFile() throws Exception {
@@ -51,6 +57,14 @@ public class HkProjectFile extends HkFile {
 
 	public hkbProjectStringData getStringData() {
 		return data.getStringData();
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }

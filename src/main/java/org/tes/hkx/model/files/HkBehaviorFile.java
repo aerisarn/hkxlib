@@ -14,6 +14,7 @@ public class HkBehaviorFile extends HkFile {
 	public static final int behaviorStartingKey = 100;
 	public static final String variantClassName = "hkbBehaviorGraph";
 	public static final String variantName = "hkbBehaviorGraph";
+	private String fileName;
 	
 	hkbBehaviorGraph graph;
 
@@ -29,6 +30,11 @@ public class HkBehaviorFile extends HkFile {
 	public HkBehaviorFile(HkpackfileType source) throws Exception {
 		super(source);
 		setup();
+	}
+	
+	public HkBehaviorFile(String name) throws Exception {
+		this();
+		setFileName(name);
 	}
 	
 	public HkBehaviorFile() throws NegativeArraySizeException, JAXBException {
@@ -50,6 +56,14 @@ public class HkBehaviorFile extends HkFile {
 
 	public hkbBehaviorGraphData getGraphData() {
 		return graph.getData();
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }

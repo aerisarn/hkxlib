@@ -1,7 +1,5 @@
 package org.tes.hkx.model.files;
 
-import java.io.File;
-
 import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkobjectType;
@@ -9,8 +7,6 @@ import org.tes.hkx.lib.HkpackfileType;
 import org.tes.hkx.lib.ext.Unnamed1;
 import org.tes.hkx.lib.ext.hkaAnimationContainer;
 import org.tes.hkx.lib.ext.hkaSkeleton;
-import org.tes.hkx.lib.ext.hkbBehaviorGraph;
-import org.tes.hkx.lib.ext.hkbProjectData;
 import org.tes.hkx.model.HkFile;
 
 public class HkSkeletonFile extends HkFile {
@@ -18,6 +14,7 @@ public class HkSkeletonFile extends HkFile {
 	public final static Integer skeletonStartingKey = 38;
 	public static final String variantClassName = "Animation Container";
 	public static final String variantName = "Animation Container";
+	private String fileName;
 	
 	hkaAnimationContainer animationContainer;
 
@@ -46,6 +43,11 @@ public class HkSkeletonFile extends HkFile {
 		startingKey = skeletonStartingKey;
 		resetKeys();
 	}
+	
+	public HkSkeletonFile(String name) throws NegativeArraySizeException, JAXBException {
+		this();
+		setFileName(name);
+	}
 
 	public hkaAnimationContainer getAnimationContainer() {
 		return animationContainer;
@@ -53,6 +55,14 @@ public class HkSkeletonFile extends HkFile {
 
 	public Iterable<hkaSkeleton> getSkeletons() {
 		return animationContainer.getSkeletons();
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }

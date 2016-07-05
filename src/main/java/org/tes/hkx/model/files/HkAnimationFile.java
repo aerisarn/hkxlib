@@ -12,6 +12,7 @@ public class HkAnimationFile extends HkFile {
 	public static final int animStartingKey = 39;
 	public static final String variantClassName = "Animation Container";
 	public static final String variantName = "Animation Container";
+	private String fileName;
 
 	private void setup() throws Exception {
 		for (Unnamed1 variant : getRoot().getNamedVariants()) {
@@ -27,6 +28,11 @@ public class HkAnimationFile extends HkFile {
 		setup();
 	}
 	
+	public HkAnimationFile(String name) throws Exception {
+		this();
+		setFileName(name);
+	}
+	
 	public HkAnimationFile() throws NegativeArraySizeException, JAXBException {
 		Unnamed1 variant = new Unnamed1();
 		variant.setClassName(variantClassName);
@@ -37,6 +43,14 @@ public class HkAnimationFile extends HkFile {
 		getObjects().add(container);
 		startingKey = animStartingKey;
 		resetKeys();
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }
