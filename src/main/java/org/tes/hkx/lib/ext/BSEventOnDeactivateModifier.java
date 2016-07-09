@@ -35,7 +35,7 @@ public class BSEventOnDeactivateModifier
     private String userData;
     private String childname;
     private String enable;
-    private Unnamed15 event;
+    private innerEvent event;
 
     public BSEventOnDeactivateModifier() {
         setVariableBindingSet(null);
@@ -88,11 +88,11 @@ public class BSEventOnDeactivateModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"event\"]/hkobject")
-    public Unnamed15 getEvent() {
+    public innerEvent getEvent() {
         return event;
     }
 
-    public void setEvent(Unnamed15 newEvent) {
+    public void setEvent(innerEvent newEvent) {
         this.event = newEvent;
     }
 

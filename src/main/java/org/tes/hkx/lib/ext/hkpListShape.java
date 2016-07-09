@@ -38,7 +38,7 @@ public class hkpListShape
     private String disableWelding;
     private String collectionType;
     @XmlElement(name = "hkparam[@name=\"childInfo\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed29> childInfo;
+    private ArrayList<org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo> childInfo;
     @XmlPath("hkparam[@name=\"childInfo\"]/@numelements")
     private Integer numchildInfo;
     private String flags;
@@ -51,7 +51,7 @@ public class hkpListShape
         setUserData("0");
         setDisableWelding("false");
         setCollectionType("COLLECTION_LIST");
-        childInfo = new ArrayList<org.tes.hkx.lib.ext.Unnamed29>();
+        childInfo = new ArrayList<org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo>();
         numchildInfo = 0;
         setFlags("0");
         setNumDisabledChildren("0");
@@ -95,15 +95,15 @@ public class hkpListShape
         return numchildInfo;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed29> getChildInfo() {
+    public Iterable<org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo> getChildInfo() {
         return childInfo;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed29 getChildInfoAt(int index) {
+    public org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo getChildInfoAt(int index) {
         return childInfo.get(index);
     }
 
-    public boolean addToChildInfo(org.tes.hkx.lib.ext.Unnamed29 newChildInfo) {
+    public boolean addToChildInfo(org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo newChildInfo) {
         if (childInfo.add(newChildInfo)) {
             numchildInfo += 1;
             return true;
@@ -112,7 +112,7 @@ public class hkpListShape
     }
 
     @ObjectLink
-    public boolean removeFromChildInfo(org.tes.hkx.lib.ext.Unnamed29 childInfoToRemove) {
+    public boolean removeFromChildInfo(org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo childInfoToRemove) {
         if (childInfo.remove(childInfoToRemove)) {
             numchildInfo += -1;
             return true;
@@ -120,8 +120,8 @@ public class hkpListShape
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed29 removeFromChildInfoAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed29 toRemove;
+    public org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo removeFromChildInfoAt(int index) {
+        org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo toRemove;
         toRemove = childInfo.remove(index);
         if (!(null == toRemove)) {
             numchildInfo += -1;
@@ -183,7 +183,7 @@ public class hkpListShape
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed29 child: getChildInfo()) {
+        for (org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo child: getChildInfo()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -192,7 +192,7 @@ public class hkpListShape
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed29 child: getChildInfo()) {
+        for (org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo child: getChildInfo()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -201,7 +201,7 @@ public class hkpListShape
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed29 child: getChildInfo()) {
+        for (org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo child: getChildInfo()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -209,7 +209,7 @@ public class hkpListShape
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed29)&&removeFromChildInfo(((org.tes.hkx.lib.ext.Unnamed29) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo)&&removeFromChildInfo(((org.tes.hkx.lib.ext.innerFilteredCapsuleShapeInfo) toRemove))) {
             return true;
         }
         return false;

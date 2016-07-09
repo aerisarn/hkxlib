@@ -38,7 +38,7 @@ public class hkbFootIkDriverInfo
 {
 
     @XmlElement(name = "hkparam[@name=\"legs\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed28> legs;
+    private ArrayList<org.tes.hkx.lib.ext.innerLegInfo> legs;
     @XmlPath("hkparam[@name=\"legs\"]/@numelements")
     private Integer numlegs;
     private String raycastDistanceUp;
@@ -54,7 +54,7 @@ public class hkbFootIkDriverInfo
     private String isQuadrupedNarrow;
 
     public hkbFootIkDriverInfo() {
-        legs = new ArrayList<org.tes.hkx.lib.ext.Unnamed28>();
+        legs = new ArrayList<org.tes.hkx.lib.ext.innerLegInfo>();
         numlegs = 0;
         setRaycastDistanceUp("64.000000");
         setRaycastDistanceDown("192.000000");
@@ -74,15 +74,15 @@ public class hkbFootIkDriverInfo
         return numlegs;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed28> getLegs() {
+    public Iterable<org.tes.hkx.lib.ext.innerLegInfo> getLegs() {
         return legs;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed28 getLegsAt(int index) {
+    public org.tes.hkx.lib.ext.innerLegInfo getLegsAt(int index) {
         return legs.get(index);
     }
 
-    public boolean addToLegs(org.tes.hkx.lib.ext.Unnamed28 newLegs) {
+    public boolean addToLegs(org.tes.hkx.lib.ext.innerLegInfo newLegs) {
         if (legs.add(newLegs)) {
             numlegs += 1;
             return true;
@@ -91,7 +91,7 @@ public class hkbFootIkDriverInfo
     }
 
     @ObjectLink
-    public boolean removeFromLegs(org.tes.hkx.lib.ext.Unnamed28 legsToRemove) {
+    public boolean removeFromLegs(org.tes.hkx.lib.ext.innerLegInfo legsToRemove) {
         if (legs.remove(legsToRemove)) {
             numlegs += -1;
             return true;
@@ -99,8 +99,8 @@ public class hkbFootIkDriverInfo
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed28 removeFromLegsAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed28 toRemove;
+    public org.tes.hkx.lib.ext.innerLegInfo removeFromLegsAt(int index) {
+        org.tes.hkx.lib.ext.innerLegInfo toRemove;
         toRemove = legs.remove(index);
         if (!(null == toRemove)) {
             numlegs += -1;
@@ -222,7 +222,7 @@ public class hkbFootIkDriverInfo
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed28 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerLegInfo child: getLegs()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -231,7 +231,7 @@ public class hkbFootIkDriverInfo
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed28 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerLegInfo child: getLegs()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -240,7 +240,7 @@ public class hkbFootIkDriverInfo
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed28 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerLegInfo child: getLegs()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -248,7 +248,7 @@ public class hkbFootIkDriverInfo
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed28)&&removeFromLegs(((org.tes.hkx.lib.ext.Unnamed28) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerLegInfo)&&removeFromLegs(((org.tes.hkx.lib.ext.innerLegInfo) toRemove))) {
             return true;
         }
         return false;

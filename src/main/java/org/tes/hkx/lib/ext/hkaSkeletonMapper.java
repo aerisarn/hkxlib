@@ -24,7 +24,7 @@ public class hkaSkeletonMapper
     implements IHkContainer, IHkVisitable
 {
 
-    private Unnamed50 mapping;
+    private innerSkeletonMappingInfo mapping;
 
     public hkaSkeletonMapper() {
         setMapping(null);
@@ -32,11 +32,11 @@ public class hkaSkeletonMapper
     }
 
     @XmlElement(name = "hkparam[@name=\"mapping\"]/hkobject")
-    public Unnamed50 getMapping() {
+    public innerSkeletonMappingInfo getMapping() {
         return mapping;
     }
 
-    public void setMapping(Unnamed50 newMapping) {
+    public void setMapping(innerSkeletonMappingInfo newMapping) {
         this.mapping = newMapping;
     }
 

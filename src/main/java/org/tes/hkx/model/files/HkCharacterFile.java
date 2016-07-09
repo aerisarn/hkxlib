@@ -4,7 +4,7 @@ import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.HkpackfileType;
-import org.tes.hkx.lib.ext.Unnamed1;
+import org.tes.hkx.lib.ext.innerFieldVariants;
 import org.tes.hkx.lib.ext.hkbCharacterData;
 import org.tes.hkx.lib.ext.hkbCharacterStringData;
 import org.tes.hkx.model.HkFile;
@@ -38,7 +38,7 @@ public class HkCharacterFile extends HkFile {
 	}
 	
 	public HkCharacterFile() throws Exception {
-		Unnamed1 variant = new Unnamed1();
+		innerFieldVariants variant = new innerFieldVariants();
 		variant.setClassName(variantClassName);
 		variant.setName(variantName);
 		data = createObject(hkbCharacterData.class);

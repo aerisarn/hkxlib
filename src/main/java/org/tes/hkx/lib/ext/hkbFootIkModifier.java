@@ -51,9 +51,9 @@ public class hkbFootIkModifier
     private String userData;
     private String childname;
     private String enable;
-    private Unnamed44 gains;
+    private innerModifierGains gains;
     @XmlElement(name = "hkparam[@name=\"legs\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed45> legs;
+    private ArrayList<org.tes.hkx.lib.ext.innerModifierLegs> legs;
     @XmlPath("hkparam[@name=\"legs\"]/@numelements")
     private Integer numlegs;
     private String raycastDistanceUp;
@@ -78,7 +78,7 @@ public class hkbFootIkModifier
         setName("FootIKModifier_TakeOff");
         setEnable("true");
         setGains(null);
-        legs = new ArrayList<org.tes.hkx.lib.ext.Unnamed45>();
+        legs = new ArrayList<org.tes.hkx.lib.ext.innerModifierLegs>();
         numlegs = 0;
         setRaycastDistanceUp("0.500000");
         setRaycastDistanceDown("0.800000");
@@ -140,11 +140,11 @@ public class hkbFootIkModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"gains\"]/hkobject")
-    public Unnamed44 getGains() {
+    public innerModifierGains getGains() {
         return gains;
     }
 
-    public void setGains(Unnamed44 newGains) {
+    public void setGains(innerModifierGains newGains) {
         this.gains = newGains;
     }
 
@@ -152,15 +152,15 @@ public class hkbFootIkModifier
         return numlegs;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed45> getLegs() {
+    public Iterable<org.tes.hkx.lib.ext.innerModifierLegs> getLegs() {
         return legs;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed45 getLegsAt(int index) {
+    public org.tes.hkx.lib.ext.innerModifierLegs getLegsAt(int index) {
         return legs.get(index);
     }
 
-    public boolean addToLegs(org.tes.hkx.lib.ext.Unnamed45 newLegs) {
+    public boolean addToLegs(org.tes.hkx.lib.ext.innerModifierLegs newLegs) {
         if (legs.add(newLegs)) {
             numlegs += 1;
             return true;
@@ -169,7 +169,7 @@ public class hkbFootIkModifier
     }
 
     @ObjectLink
-    public boolean removeFromLegs(org.tes.hkx.lib.ext.Unnamed45 legsToRemove) {
+    public boolean removeFromLegs(org.tes.hkx.lib.ext.innerModifierLegs legsToRemove) {
         if (legs.remove(legsToRemove)) {
             numlegs += -1;
             return true;
@@ -177,8 +177,8 @@ public class hkbFootIkModifier
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed45 removeFromLegsAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed45 toRemove;
+    public org.tes.hkx.lib.ext.innerModifierLegs removeFromLegsAt(int index) {
+        org.tes.hkx.lib.ext.innerModifierLegs toRemove;
         toRemove = legs.remove(index);
         if (!(null == toRemove)) {
             numlegs += -1;
@@ -346,7 +346,7 @@ public class hkbFootIkModifier
         if (!(null == getGains())) {
             getGains().accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed45 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerModifierLegs child: getLegs()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -361,7 +361,7 @@ public class hkbFootIkModifier
         if (!(null == getGains())) {
             getGains().accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed45 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerModifierLegs child: getLegs()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -376,7 +376,7 @@ public class hkbFootIkModifier
         if (!(null == getGains())) {
             theseObjects.add(getGains());
         }
-        for (org.tes.hkx.lib.ext.Unnamed45 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerModifierLegs child: getLegs()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -392,7 +392,7 @@ public class hkbFootIkModifier
             setGains(null);
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed45)&&removeFromLegs(((org.tes.hkx.lib.ext.Unnamed45) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerModifierLegs)&&removeFromLegs(((org.tes.hkx.lib.ext.innerModifierLegs) toRemove))) {
             return true;
         }
         return false;

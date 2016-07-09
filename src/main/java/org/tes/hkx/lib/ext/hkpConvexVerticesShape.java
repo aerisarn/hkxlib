@@ -41,7 +41,7 @@ public class hkpConvexVerticesShape
     private String aabbHalfExtents;
     private String aabbCenter;
     @XmlElement(name = "hkparam[@name=\"rotatedVertices\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed77> rotatedVertices;
+    private ArrayList<org.tes.hkx.lib.ext.innerVertexRotation> rotatedVertices;
     @XmlPath("hkparam[@name=\"rotatedVertices\"]/@numelements")
     private Integer numrotatedVertices;
     private String numVertices;
@@ -57,7 +57,7 @@ public class hkpConvexVerticesShape
         setRadius("0.013195");
         setAabbHalfExtents("(20.973045 20.566490 4.395403 0.000000)");
         setAabbCenter("(-0.000001 -22.677120 4.408597 0.000000)");
-        rotatedVertices = new ArrayList<org.tes.hkx.lib.ext.Unnamed77>();
+        rotatedVertices = new ArrayList<org.tes.hkx.lib.ext.innerVertexRotation>();
         numrotatedVertices = 0;
         setNumVertices("8");
         planeEquations = new ArrayList<String>();
@@ -110,15 +110,15 @@ public class hkpConvexVerticesShape
         return numrotatedVertices;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed77> getRotatedVertices() {
+    public Iterable<org.tes.hkx.lib.ext.innerVertexRotation> getRotatedVertices() {
         return rotatedVertices;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed77 getRotatedVerticesAt(int index) {
+    public org.tes.hkx.lib.ext.innerVertexRotation getRotatedVerticesAt(int index) {
         return rotatedVertices.get(index);
     }
 
-    public boolean addToRotatedVertices(org.tes.hkx.lib.ext.Unnamed77 newRotatedVertices) {
+    public boolean addToRotatedVertices(org.tes.hkx.lib.ext.innerVertexRotation newRotatedVertices) {
         if (rotatedVertices.add(newRotatedVertices)) {
             numrotatedVertices += 1;
             return true;
@@ -127,7 +127,7 @@ public class hkpConvexVerticesShape
     }
 
     @ObjectLink
-    public boolean removeFromRotatedVertices(org.tes.hkx.lib.ext.Unnamed77 rotatedVerticesToRemove) {
+    public boolean removeFromRotatedVertices(org.tes.hkx.lib.ext.innerVertexRotation rotatedVerticesToRemove) {
         if (rotatedVertices.remove(rotatedVerticesToRemove)) {
             numrotatedVertices += -1;
             return true;
@@ -135,8 +135,8 @@ public class hkpConvexVerticesShape
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed77 removeFromRotatedVerticesAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed77 toRemove;
+    public org.tes.hkx.lib.ext.innerVertexRotation removeFromRotatedVerticesAt(int index) {
+        org.tes.hkx.lib.ext.innerVertexRotation toRemove;
         toRemove = rotatedVertices.remove(index);
         if (!(null == toRemove)) {
             numrotatedVertices += -1;
@@ -207,7 +207,7 @@ public class hkpConvexVerticesShape
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed77 child: getRotatedVertices()) {
+        for (org.tes.hkx.lib.ext.innerVertexRotation child: getRotatedVertices()) {
             child.accept(visitor);
         }
         if (!(null == getConnectivity())) {
@@ -219,7 +219,7 @@ public class hkpConvexVerticesShape
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed77 child: getRotatedVertices()) {
+        for (org.tes.hkx.lib.ext.innerVertexRotation child: getRotatedVertices()) {
             child.accept(visitor, this);
         }
         if (!(null == getConnectivity())) {
@@ -231,7 +231,7 @@ public class hkpConvexVerticesShape
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed77 child: getRotatedVertices()) {
+        for (org.tes.hkx.lib.ext.innerVertexRotation child: getRotatedVertices()) {
             theseObjects.add(child);
         }
         if (!(null == getConnectivity())) {
@@ -242,7 +242,7 @@ public class hkpConvexVerticesShape
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed77)&&removeFromRotatedVertices(((org.tes.hkx.lib.ext.Unnamed77) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerVertexRotation)&&removeFromRotatedVertices(((org.tes.hkx.lib.ext.innerVertexRotation) toRemove))) {
             return true;
         }
         if ((getConnectivity()!= null)&&getConnectivity().equals(toRemove)) {

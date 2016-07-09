@@ -38,9 +38,9 @@ public class hkbFootIkControlsModifier
     private String userData;
     private String childname;
     private String enable;
-    private Unnamed73 controlData;
+    private innerFootIkControlData controlData;
     @XmlElement(name = "hkparam[@name=\"legs\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed75> legs;
+    private ArrayList<org.tes.hkx.lib.ext.innerFootIkControlLegsInfo> legs;
     @XmlPath("hkparam[@name=\"legs\"]/@numelements")
     private Integer numlegs;
     private String errorOutTranslation;
@@ -52,7 +52,7 @@ public class hkbFootIkControlsModifier
         setName("FootIKControlsModifier");
         setEnable("true");
         setControlData(null);
-        legs = new ArrayList<org.tes.hkx.lib.ext.Unnamed75>();
+        legs = new ArrayList<org.tes.hkx.lib.ext.innerFootIkControlLegsInfo>();
         numlegs = 0;
         setErrorOutTranslation("(0.000000 4971617746849628200.000000 -1.#IND00 0.000000)");
         setAlignWithGroundRotation("(0.000000 0.000000 0.000000 1.000000)");
@@ -101,11 +101,11 @@ public class hkbFootIkControlsModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"controlData\"]/hkobject")
-    public Unnamed73 getControlData() {
+    public innerFootIkControlData getControlData() {
         return controlData;
     }
 
-    public void setControlData(Unnamed73 newControlData) {
+    public void setControlData(innerFootIkControlData newControlData) {
         this.controlData = newControlData;
     }
 
@@ -113,15 +113,15 @@ public class hkbFootIkControlsModifier
         return numlegs;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed75> getLegs() {
+    public Iterable<org.tes.hkx.lib.ext.innerFootIkControlLegsInfo> getLegs() {
         return legs;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed75 getLegsAt(int index) {
+    public org.tes.hkx.lib.ext.innerFootIkControlLegsInfo getLegsAt(int index) {
         return legs.get(index);
     }
 
-    public boolean addToLegs(org.tes.hkx.lib.ext.Unnamed75 newLegs) {
+    public boolean addToLegs(org.tes.hkx.lib.ext.innerFootIkControlLegsInfo newLegs) {
         if (legs.add(newLegs)) {
             numlegs += 1;
             return true;
@@ -130,7 +130,7 @@ public class hkbFootIkControlsModifier
     }
 
     @ObjectLink
-    public boolean removeFromLegs(org.tes.hkx.lib.ext.Unnamed75 legsToRemove) {
+    public boolean removeFromLegs(org.tes.hkx.lib.ext.innerFootIkControlLegsInfo legsToRemove) {
         if (legs.remove(legsToRemove)) {
             numlegs += -1;
             return true;
@@ -138,8 +138,8 @@ public class hkbFootIkControlsModifier
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed75 removeFromLegsAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed75 toRemove;
+    public org.tes.hkx.lib.ext.innerFootIkControlLegsInfo removeFromLegsAt(int index) {
+        org.tes.hkx.lib.ext.innerFootIkControlLegsInfo toRemove;
         toRemove = legs.remove(index);
         if (!(null == toRemove)) {
             numlegs += -1;
@@ -177,7 +177,7 @@ public class hkbFootIkControlsModifier
         if (!(null == getControlData())) {
             getControlData().accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed75 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerFootIkControlLegsInfo child: getLegs()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -192,7 +192,7 @@ public class hkbFootIkControlsModifier
         if (!(null == getControlData())) {
             getControlData().accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed75 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerFootIkControlLegsInfo child: getLegs()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -207,7 +207,7 @@ public class hkbFootIkControlsModifier
         if (!(null == getControlData())) {
             theseObjects.add(getControlData());
         }
-        for (org.tes.hkx.lib.ext.Unnamed75 child: getLegs()) {
+        for (org.tes.hkx.lib.ext.innerFootIkControlLegsInfo child: getLegs()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -223,7 +223,7 @@ public class hkbFootIkControlsModifier
             setControlData(null);
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed75)&&removeFromLegs(((org.tes.hkx.lib.ext.Unnamed75) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerFootIkControlLegsInfo)&&removeFromLegs(((org.tes.hkx.lib.ext.innerFootIkControlLegsInfo) toRemove))) {
             return true;
         }
         return false;

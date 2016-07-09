@@ -39,8 +39,8 @@ public class BSEventEveryNEventsModifier
     private String userData;
     private String childname;
     private String enable;
-    private Unnamed13 eventToCheckFor;
-    private Unnamed14 eventToSend;
+    private innerEvent eventToCheckFor;
+    private innerEvent eventToSend;
     private String numberOfEventsBeforeSend;
     private String minimumNumberOfEventsBeforeSend;
     private String randomizeNumberOfEvents;
@@ -100,20 +100,20 @@ public class BSEventEveryNEventsModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"eventToCheckFor\"]/hkobject")
-    public Unnamed13 getEventToCheckFor() {
+    public innerEvent getEventToCheckFor() {
         return eventToCheckFor;
     }
 
-    public void setEventToCheckFor(Unnamed13 newEventToCheckFor) {
+    public void setEventToCheckFor(innerEvent newEventToCheckFor) {
         this.eventToCheckFor = newEventToCheckFor;
     }
 
     @XmlElement(name = "hkparam[@name=\"eventToSend\"]/hkobject")
-    public Unnamed14 getEventToSend() {
+    public innerEvent getEventToSend() {
         return eventToSend;
     }
 
-    public void setEventToSend(Unnamed14 newEventToSend) {
+    public void setEventToSend(innerEvent newEventToSend) {
         this.eventToSend = newEventToSend;
     }
 

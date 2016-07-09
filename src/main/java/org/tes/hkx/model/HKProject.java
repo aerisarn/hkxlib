@@ -41,27 +41,31 @@ public class HKProject {
 
 		for (String characterPath : projectFile.getStringData().getCharacterFilenames()) {
 			characterFiles.add(filesFactory.loadTypedFile(
-					new File(projectFileSource.getParent(), characterPath.replace(".hkx", ".xml")),
+					new File(projectFileSource.getParent(), characterPath.toLowerCase().replace(".hkx", ".xml")),
 					HkCharacterFile.class));
 		}
 		for (HkCharacterFile characterFile : characterFiles) {
 			rigRagdollFiles.put(characterFile,
 					filesFactory.loadTypedFile(
 							new File(projectFileSource.getParent(),
-									characterFile.getStringData().getRigName().replace(".hkx", ".xml")),
+									characterFile.getStringData().getRigName().toLowerCase().replace(".hkx", ".xml")),
 							HkSkeletonFile.class));
 			behaviorFiles.put(characterFile,
 					filesFactory.loadTypedFile(
 							new File(projectFileSource.getParent(),
-									characterFile.getStringData().getBehaviorFilename().replace(".hkx", ".xml")),
+									characterFile.getStringData().getBehaviorFilename().toLowerCase().replace(".hkx", ".xml")),
 							HkBehaviorFile.class));
 			for (String animationFile : characterFile.getStringData().getAnimationNames()) {
 				animationFiles.put(characterFile,
 						filesFactory.loadTypedFile(
-								new File(projectFileSource.getParent(), animationFile.replace(".hkx", ".xml")),
+								new File(projectFileSource.getParent(), animationFile.toLowerCase().replace(".hkx", ".xml")),
 								HkAnimationFile.class));
 			}
 		}
+	}
+	
+	public HkProjectFile getProjectFile() {
+		return projectFile;
 	}
 
 	public List<HkCharacterFile> getCharacterFiles() {

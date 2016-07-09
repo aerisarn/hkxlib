@@ -4,7 +4,7 @@ import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.HkpackfileType;
-import org.tes.hkx.lib.ext.Unnamed1;
+import org.tes.hkx.lib.ext.innerFieldVariants;
 import org.tes.hkx.lib.ext.hkbProjectData;
 import org.tes.hkx.lib.ext.hkbProjectStringData;
 import org.tes.hkx.model.HkFile;
@@ -38,7 +38,7 @@ public class HkProjectFile extends HkFile {
 	}
 
 	public HkProjectFile() throws Exception {
-		Unnamed1 variant = new Unnamed1();
+		innerFieldVariants variant = new innerFieldVariants();
 		variant.setClassName(variantClassName);
 		variant.setName(variantName);
 		data = createObject(hkbProjectData.class);

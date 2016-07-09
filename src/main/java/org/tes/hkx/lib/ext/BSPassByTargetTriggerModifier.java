@@ -41,7 +41,7 @@ public class BSPassByTargetTriggerModifier
     private String targetPosition;
     private String radius;
     private String movementDirection;
-    private Unnamed19 triggerEvent;
+    private innerEvent triggerEvent;
 
     public BSPassByTargetTriggerModifier() {
         setVariableBindingSet(null);
@@ -127,11 +127,11 @@ public class BSPassByTargetTriggerModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"triggerEvent\"]/hkobject")
-    public Unnamed19 getTriggerEvent() {
+    public innerEvent getTriggerEvent() {
         return triggerEvent;
     }
 
-    public void setTriggerEvent(Unnamed19 newTriggerEvent) {
+    public void setTriggerEvent(innerEvent newTriggerEvent) {
         this.triggerEvent = newTriggerEvent;
     }
 

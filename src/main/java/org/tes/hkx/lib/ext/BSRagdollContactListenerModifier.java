@@ -36,7 +36,7 @@ public class BSRagdollContactListenerModifier
     private String userData;
     private String childname;
     private String enable;
-    private Unnamed2 contactEvent;
+    private innerEvent contactEvent;
     private hkbBoneIndexArray bones;
 
     public BSRagdollContactListenerModifier() {
@@ -91,11 +91,11 @@ public class BSRagdollContactListenerModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"contactEvent\"]/hkobject")
-    public Unnamed2 getContactEvent() {
+    public innerEvent getContactEvent() {
         return contactEvent;
     }
 
-    public void setContactEvent(Unnamed2 newContactEvent) {
+    public void setContactEvent(innerEvent newContactEvent) {
         this.contactEvent = newContactEvent;
     }
 

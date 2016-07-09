@@ -27,7 +27,7 @@ public class hkpLimitedHingeConstraintData
 {
 
     private String userData;
-    private Unnamed5 atoms;
+    private innerConstraintAtomInfo atoms;
 
     public hkpLimitedHingeConstraintData() {
         setUserData("0");
@@ -46,11 +46,11 @@ public class hkpLimitedHingeConstraintData
     }
 
     @XmlElement(name = "hkparam[@name=\"atoms\"]/hkobject")
-    public Unnamed5 getAtoms() {
+    public innerConstraintAtomInfo getAtoms() {
         return atoms;
     }
 
-    public void setAtoms(Unnamed5 newAtoms) {
+    public void setAtoms(innerConstraintAtomInfo newAtoms) {
         this.atoms = newAtoms;
     }
 

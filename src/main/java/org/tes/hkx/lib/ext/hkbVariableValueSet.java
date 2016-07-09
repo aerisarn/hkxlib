@@ -33,7 +33,7 @@ public class hkbVariableValueSet
 {
 
     @XmlElement(name = "hkparam[@name=\"wordVariableValues\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed30> wordVariableValues;
+    private ArrayList<org.tes.hkx.lib.ext.innerWordVariableValue> wordVariableValues;
     @XmlPath("hkparam[@name=\"wordVariableValues\"]/@numelements")
     private Integer numwordVariableValues;
     @XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
@@ -49,7 +49,7 @@ public class hkbVariableValueSet
     private Integer numvariantVariableValues;
 
     public hkbVariableValueSet() {
-        wordVariableValues = new ArrayList<org.tes.hkx.lib.ext.Unnamed30>();
+        wordVariableValues = new ArrayList<org.tes.hkx.lib.ext.innerWordVariableValue>();
         numwordVariableValues = 0;
         quadVariableValues = new ArrayList<String>();
         numquadVariableValues = 0;
@@ -62,15 +62,15 @@ public class hkbVariableValueSet
         return numwordVariableValues;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed30> getWordVariableValues() {
+    public Iterable<org.tes.hkx.lib.ext.innerWordVariableValue> getWordVariableValues() {
         return wordVariableValues;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed30 getWordVariableValuesAt(int index) {
+    public org.tes.hkx.lib.ext.innerWordVariableValue getWordVariableValuesAt(int index) {
         return wordVariableValues.get(index);
     }
 
-    public boolean addToWordVariableValues(org.tes.hkx.lib.ext.Unnamed30 newWordVariableValues) {
+    public boolean addToWordVariableValues(org.tes.hkx.lib.ext.innerWordVariableValue newWordVariableValues) {
         if (wordVariableValues.add(newWordVariableValues)) {
             numwordVariableValues += 1;
             return true;
@@ -79,7 +79,7 @@ public class hkbVariableValueSet
     }
 
     @ObjectLink
-    public boolean removeFromWordVariableValues(org.tes.hkx.lib.ext.Unnamed30 wordVariableValuesToRemove) {
+    public boolean removeFromWordVariableValues(org.tes.hkx.lib.ext.innerWordVariableValue wordVariableValuesToRemove) {
         if (wordVariableValues.remove(wordVariableValuesToRemove)) {
             numwordVariableValues += -1;
             return true;
@@ -87,8 +87,8 @@ public class hkbVariableValueSet
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed30 removeFromWordVariableValuesAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed30 toRemove;
+    public org.tes.hkx.lib.ext.innerWordVariableValue removeFromWordVariableValuesAt(int index) {
+        org.tes.hkx.lib.ext.innerWordVariableValue toRemove;
         toRemove = wordVariableValues.remove(index);
         if (!(null == toRemove)) {
             numwordVariableValues += -1;
@@ -177,7 +177,7 @@ public class hkbVariableValueSet
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed30 child: getWordVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerWordVariableValue child: getWordVariableValues()) {
             child.accept(visitor);
         }
         for (hkbBoneWeightArray child: getVariantVariableValues()) {
@@ -189,7 +189,7 @@ public class hkbVariableValueSet
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed30 child: getWordVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerWordVariableValue child: getWordVariableValues()) {
             child.accept(visitor, this);
         }
         for (hkbBoneWeightArray child: getVariantVariableValues()) {
@@ -201,7 +201,7 @@ public class hkbVariableValueSet
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed30 child: getWordVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerWordVariableValue child: getWordVariableValues()) {
             theseObjects.add(child);
         }
         for (hkbBoneWeightArray child: getVariantVariableValues()) {
@@ -212,7 +212,7 @@ public class hkbVariableValueSet
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed30)&&removeFromWordVariableValues(((org.tes.hkx.lib.ext.Unnamed30) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerWordVariableValue)&&removeFromWordVariableValues(((org.tes.hkx.lib.ext.innerWordVariableValue) toRemove))) {
             return true;
         }
         if ((toRemove instanceof hkbBoneWeightArray)&&removeFromVariantVariableValues(((hkbBoneWeightArray) toRemove))) {

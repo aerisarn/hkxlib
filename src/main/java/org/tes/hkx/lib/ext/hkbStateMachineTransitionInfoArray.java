@@ -27,12 +27,12 @@ public class hkbStateMachineTransitionInfoArray
 {
 
     @XmlElement(name = "hkparam[@name=\"transitions\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed47> transitions;
+    private ArrayList<org.tes.hkx.lib.ext.innerStateTransitionInfo> transitions;
     @XmlPath("hkparam[@name=\"transitions\"]/@numelements")
     private Integer numtransitions;
 
     public hkbStateMachineTransitionInfoArray() {
-        transitions = new ArrayList<org.tes.hkx.lib.ext.Unnamed47>();
+        transitions = new ArrayList<org.tes.hkx.lib.ext.innerStateTransitionInfo>();
         numtransitions = 0;
         setClazz("hkbStateMachineTransitionInfoArray");
     }
@@ -41,15 +41,15 @@ public class hkbStateMachineTransitionInfoArray
         return numtransitions;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed47> getTransitions() {
+    public Iterable<org.tes.hkx.lib.ext.innerStateTransitionInfo> getTransitions() {
         return transitions;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed47 getTransitionsAt(int index) {
+    public org.tes.hkx.lib.ext.innerStateTransitionInfo getTransitionsAt(int index) {
         return transitions.get(index);
     }
 
-    public boolean addToTransitions(org.tes.hkx.lib.ext.Unnamed47 newTransitions) {
+    public boolean addToTransitions(org.tes.hkx.lib.ext.innerStateTransitionInfo newTransitions) {
         if (transitions.add(newTransitions)) {
             numtransitions += 1;
             return true;
@@ -58,7 +58,7 @@ public class hkbStateMachineTransitionInfoArray
     }
 
     @ObjectLink
-    public boolean removeFromTransitions(org.tes.hkx.lib.ext.Unnamed47 transitionsToRemove) {
+    public boolean removeFromTransitions(org.tes.hkx.lib.ext.innerStateTransitionInfo transitionsToRemove) {
         if (transitions.remove(transitionsToRemove)) {
             numtransitions += -1;
             return true;
@@ -66,8 +66,8 @@ public class hkbStateMachineTransitionInfoArray
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed47 removeFromTransitionsAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed47 toRemove;
+    public org.tes.hkx.lib.ext.innerStateTransitionInfo removeFromTransitionsAt(int index) {
+        org.tes.hkx.lib.ext.innerStateTransitionInfo toRemove;
         toRemove = transitions.remove(index);
         if (!(null == toRemove)) {
             numtransitions += -1;
@@ -79,7 +79,7 @@ public class hkbStateMachineTransitionInfoArray
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed47 child: getTransitions()) {
+        for (org.tes.hkx.lib.ext.innerStateTransitionInfo child: getTransitions()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -88,7 +88,7 @@ public class hkbStateMachineTransitionInfoArray
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed47 child: getTransitions()) {
+        for (org.tes.hkx.lib.ext.innerStateTransitionInfo child: getTransitions()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -97,7 +97,7 @@ public class hkbStateMachineTransitionInfoArray
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed47 child: getTransitions()) {
+        for (org.tes.hkx.lib.ext.innerStateTransitionInfo child: getTransitions()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -105,7 +105,7 @@ public class hkbStateMachineTransitionInfoArray
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed47)&&removeFromTransitions(((org.tes.hkx.lib.ext.Unnamed47) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerStateTransitionInfo)&&removeFromTransitions(((org.tes.hkx.lib.ext.innerStateTransitionInfo) toRemove))) {
             return true;
         }
         return false;

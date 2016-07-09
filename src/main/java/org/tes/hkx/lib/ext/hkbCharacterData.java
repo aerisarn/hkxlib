@@ -3,11 +3,13 @@ package org.tes.hkx.lib.ext;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorValue;
 import org.eclipse.persistence.oxm.annotations.XmlPath;
 import org.tes.hkx.lib.HkobjectType;
@@ -38,16 +40,16 @@ public class hkbCharacterData
     implements IHkContainer, IHkVisitable
 {
 
-    private Unnamed25 characterControllerInfo;
+    private innerCharacterControllerInfo characterControllerInfo;
     private String modelUpMS;
     private String modelForwardMS;
     private String modelRightMS;
     @XmlElement(name = "hkparam[@name=\"characterPropertyInfos\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed26> characterPropertyInfos;
+    private ArrayList<org.tes.hkx.lib.ext.innerVariableInfo> characterPropertyInfos;
     @XmlPath("hkparam[@name=\"characterPropertyInfos\"]/@numelements")
     private Integer numcharacterPropertyInfos;
     @XmlElement(name = "hkparam[@name=\"numBonesPerLod\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed26> numBonesPerLod;
+    private ArrayList<org.tes.hkx.lib.ext.innerVariableInfo> numBonesPerLod;
     @XmlPath("hkparam[@name=\"numBonesPerLod\"]/@numelements")
     private Integer numnumBonesPerLod;
     private hkbVariableValueSet characterPropertyValues;
@@ -62,9 +64,9 @@ public class hkbCharacterData
         setModelUpMS("(0.000000 0.000000 1.000000 0.000000)");
         setModelForwardMS("(1.000000 0.000000 0.000000 0.000000)");
         setModelRightMS("(-0.000000 -1.000000 -0.000000 0.000000)");
-        characterPropertyInfos = new ArrayList<org.tes.hkx.lib.ext.Unnamed26>();
+        characterPropertyInfos = new ArrayList<org.tes.hkx.lib.ext.innerVariableInfo>();
         numcharacterPropertyInfos = 0;
-        numBonesPerLod = new ArrayList<org.tes.hkx.lib.ext.Unnamed26>();
+        numBonesPerLod = new ArrayList<org.tes.hkx.lib.ext.innerVariableInfo>();
         numnumBonesPerLod = 0;
         setCharacterPropertyValues(null);
         setFootIkDriverInfo(null);
@@ -76,11 +78,11 @@ public class hkbCharacterData
     }
 
     @XmlElement(name = "hkparam[@name=\"characterControllerInfo\"]/hkobject")
-    public Unnamed25 getCharacterControllerInfo() {
+    public innerCharacterControllerInfo getCharacterControllerInfo() {
         return characterControllerInfo;
     }
 
-    public void setCharacterControllerInfo(Unnamed25 newCharacterControllerInfo) {
+    public void setCharacterControllerInfo(innerCharacterControllerInfo newCharacterControllerInfo) {
         this.characterControllerInfo = newCharacterControllerInfo;
     }
 
@@ -118,15 +120,15 @@ public class hkbCharacterData
         return numcharacterPropertyInfos;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed26> getCharacterPropertyInfos() {
+    public Iterable<org.tes.hkx.lib.ext.innerVariableInfo> getCharacterPropertyInfos() {
         return characterPropertyInfos;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed26 getCharacterPropertyInfosAt(int index) {
+    public org.tes.hkx.lib.ext.innerVariableInfo getCharacterPropertyInfosAt(int index) {
         return characterPropertyInfos.get(index);
     }
 
-    public boolean addToCharacterPropertyInfos(org.tes.hkx.lib.ext.Unnamed26 newCharacterPropertyInfos) {
+    public boolean addToCharacterPropertyInfos(org.tes.hkx.lib.ext.innerVariableInfo newCharacterPropertyInfos) {
         if (characterPropertyInfos.add(newCharacterPropertyInfos)) {
             numcharacterPropertyInfos += 1;
             return true;
@@ -135,7 +137,7 @@ public class hkbCharacterData
     }
 
     @ObjectLink
-    public boolean removeFromCharacterPropertyInfos(org.tes.hkx.lib.ext.Unnamed26 characterPropertyInfosToRemove) {
+    public boolean removeFromCharacterPropertyInfos(org.tes.hkx.lib.ext.innerVariableInfo characterPropertyInfosToRemove) {
         if (characterPropertyInfos.remove(characterPropertyInfosToRemove)) {
             numcharacterPropertyInfos += -1;
             return true;
@@ -143,8 +145,8 @@ public class hkbCharacterData
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed26 removeFromCharacterPropertyInfosAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed26 toRemove;
+    public org.tes.hkx.lib.ext.innerVariableInfo removeFromCharacterPropertyInfosAt(int index) {
+        org.tes.hkx.lib.ext.innerVariableInfo toRemove;
         toRemove = characterPropertyInfos.remove(index);
         if (!(null == toRemove)) {
             numcharacterPropertyInfos += -1;
@@ -157,15 +159,15 @@ public class hkbCharacterData
         return numnumBonesPerLod;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed26> getNumBonesPerLod() {
+    public Iterable<org.tes.hkx.lib.ext.innerVariableInfo> getNumBonesPerLod() {
         return numBonesPerLod;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed26 getNumBonesPerLodAt(int index) {
+    public org.tes.hkx.lib.ext.innerVariableInfo getNumBonesPerLodAt(int index) {
         return numBonesPerLod.get(index);
     }
 
-    public boolean addToNumBonesPerLod(org.tes.hkx.lib.ext.Unnamed26 newNumBonesPerLod) {
+    public boolean addToNumBonesPerLod(org.tes.hkx.lib.ext.innerVariableInfo newNumBonesPerLod) {
         if (numBonesPerLod.add(newNumBonesPerLod)) {
             numnumBonesPerLod += 1;
             return true;
@@ -174,7 +176,7 @@ public class hkbCharacterData
     }
 
     @ObjectLink
-    public boolean removeFromNumBonesPerLod(org.tes.hkx.lib.ext.Unnamed26 numBonesPerLodToRemove) {
+    public boolean removeFromNumBonesPerLod(org.tes.hkx.lib.ext.innerVariableInfo numBonesPerLodToRemove) {
         if (numBonesPerLod.remove(numBonesPerLodToRemove)) {
             numnumBonesPerLod += -1;
             return true;
@@ -182,8 +184,8 @@ public class hkbCharacterData
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed26 removeFromNumBonesPerLodAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed26 toRemove;
+    public org.tes.hkx.lib.ext.innerVariableInfo removeFromNumBonesPerLodAt(int index) {
+        org.tes.hkx.lib.ext.innerVariableInfo toRemove;
         toRemove = numBonesPerLod.remove(index);
         if (!(null == toRemove)) {
             numnumBonesPerLod += -1;
@@ -262,10 +264,10 @@ public class hkbCharacterData
         if (!(null == getCharacterControllerInfo())) {
             getCharacterControllerInfo().accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed26 child: getCharacterPropertyInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getCharacterPropertyInfos()) {
             child.accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed26 child: getNumBonesPerLod()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getNumBonesPerLod()) {
             child.accept(visitor);
         }
         if (!(null == getCharacterPropertyValues())) {
@@ -289,10 +291,10 @@ public class hkbCharacterData
         if (!(null == getCharacterControllerInfo())) {
             getCharacterControllerInfo().accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed26 child: getCharacterPropertyInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getCharacterPropertyInfos()) {
             child.accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed26 child: getNumBonesPerLod()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getNumBonesPerLod()) {
             child.accept(visitor, this);
         }
         if (!(null == getCharacterPropertyValues())) {
@@ -316,10 +318,10 @@ public class hkbCharacterData
         if (!(null == getCharacterControllerInfo())) {
             theseObjects.add(getCharacterControllerInfo());
         }
-        for (org.tes.hkx.lib.ext.Unnamed26 child: getCharacterPropertyInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getCharacterPropertyInfos()) {
             theseObjects.add(child);
         }
-        for (org.tes.hkx.lib.ext.Unnamed26 child: getNumBonesPerLod()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getNumBonesPerLod()) {
             theseObjects.add(child);
         }
         if (!(null == getCharacterPropertyValues())) {
@@ -343,10 +345,10 @@ public class hkbCharacterData
             setCharacterControllerInfo(null);
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed26)&&removeFromCharacterPropertyInfos(((org.tes.hkx.lib.ext.Unnamed26) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerVariableInfo)&&removeFromCharacterPropertyInfos(((org.tes.hkx.lib.ext.innerVariableInfo) toRemove))) {
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed26)&&removeFromNumBonesPerLod(((org.tes.hkx.lib.ext.Unnamed26) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerVariableInfo)&&removeFromNumBonesPerLod(((org.tes.hkx.lib.ext.innerVariableInfo) toRemove))) {
             return true;
         }
         if ((getCharacterPropertyValues()!= null)&&getCharacterPropertyValues().equals(toRemove)) {

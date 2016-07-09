@@ -45,13 +45,13 @@ public class BSEventOnFalseToTrueModifier
     private String enable;
     private String bEnableEvent1;
     private String bVariableToTest1;
-    private Unnamed32 EventToSend1;
+    private innerEvent EventToSend1;
     private String bEnableEvent2;
     private String bVariableToTest2;
-    private Unnamed33 EventToSend2;
+    private innerEvent EventToSend2;
     private String bEnableEvent3;
     private String bVariableToTest3;
-    private Unnamed34 EventToSend3;
+    private innerEvent EventToSend3;
 
     public BSEventOnFalseToTrueModifier() {
         setVariableBindingSet(null);
@@ -132,11 +132,11 @@ public class BSEventOnFalseToTrueModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"EventToSend1\"]/hkobject")
-    public Unnamed32 getEventToSend1() {
+    public innerEvent getEventToSend1() {
         return EventToSend1;
     }
 
-    public void setEventToSend1(Unnamed32 newEventToSend1) {
+    public void setEventToSend1(innerEvent newEventToSend1) {
         this.EventToSend1 = newEventToSend1;
     }
 
@@ -161,11 +161,11 @@ public class BSEventOnFalseToTrueModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"EventToSend2\"]/hkobject")
-    public Unnamed33 getEventToSend2() {
+    public innerEvent getEventToSend2() {
         return EventToSend2;
     }
 
-    public void setEventToSend2(Unnamed33 newEventToSend2) {
+    public void setEventToSend2(innerEvent newEventToSend2) {
         this.EventToSend2 = newEventToSend2;
     }
 
@@ -190,11 +190,11 @@ public class BSEventOnFalseToTrueModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"EventToSend3\"]/hkobject")
-    public Unnamed34 getEventToSend3() {
+    public innerEvent getEventToSend3() {
         return EventToSend3;
     }
 
-    public void setEventToSend3(Unnamed34 newEventToSend3) {
+    public void setEventToSend3(innerEvent newEventToSend3) {
         this.EventToSend3 = newEventToSend3;
     }
 

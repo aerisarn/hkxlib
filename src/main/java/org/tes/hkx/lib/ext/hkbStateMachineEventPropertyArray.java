@@ -27,12 +27,12 @@ public class hkbStateMachineEventPropertyArray
 {
 
     @XmlElement(name = "hkparam[@name=\"events\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed31> events;
+    private ArrayList<org.tes.hkx.lib.ext.innerEvent> events;
     @XmlPath("hkparam[@name=\"events\"]/@numelements")
     private Integer numevents;
 
     public hkbStateMachineEventPropertyArray() {
-        events = new ArrayList<org.tes.hkx.lib.ext.Unnamed31>();
+        events = new ArrayList<org.tes.hkx.lib.ext.innerEvent>();
         numevents = 0;
         setClazz("hkbStateMachineEventPropertyArray");
     }
@@ -41,15 +41,15 @@ public class hkbStateMachineEventPropertyArray
         return numevents;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed31> getEvents() {
+    public Iterable<org.tes.hkx.lib.ext.innerEvent> getEvents() {
         return events;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed31 getEventsAt(int index) {
+    public org.tes.hkx.lib.ext.innerEvent getEventsAt(int index) {
         return events.get(index);
     }
 
-    public boolean addToEvents(org.tes.hkx.lib.ext.Unnamed31 newEvents) {
+    public boolean addToEvents(org.tes.hkx.lib.ext.innerEvent newEvents) {
         if (events.add(newEvents)) {
             numevents += 1;
             return true;
@@ -58,7 +58,7 @@ public class hkbStateMachineEventPropertyArray
     }
 
     @ObjectLink
-    public boolean removeFromEvents(org.tes.hkx.lib.ext.Unnamed31 eventsToRemove) {
+    public boolean removeFromEvents(org.tes.hkx.lib.ext.innerEvent eventsToRemove) {
         if (events.remove(eventsToRemove)) {
             numevents += -1;
             return true;
@@ -66,8 +66,8 @@ public class hkbStateMachineEventPropertyArray
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed31 removeFromEventsAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed31 toRemove;
+    public org.tes.hkx.lib.ext.innerEvent removeFromEventsAt(int index) {
+        org.tes.hkx.lib.ext.innerEvent toRemove;
         toRemove = events.remove(index);
         if (!(null == toRemove)) {
             numevents += -1;
@@ -79,7 +79,7 @@ public class hkbStateMachineEventPropertyArray
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed31 child: getEvents()) {
+        for (org.tes.hkx.lib.ext.innerEvent child: getEvents()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -88,7 +88,7 @@ public class hkbStateMachineEventPropertyArray
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed31 child: getEvents()) {
+        for (org.tes.hkx.lib.ext.innerEvent child: getEvents()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -97,7 +97,7 @@ public class hkbStateMachineEventPropertyArray
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed31 child: getEvents()) {
+        for (org.tes.hkx.lib.ext.innerEvent child: getEvents()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -105,7 +105,7 @@ public class hkbStateMachineEventPropertyArray
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed31)&&removeFromEvents(((org.tes.hkx.lib.ext.Unnamed31) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerEvent)&&removeFromEvents(((org.tes.hkx.lib.ext.innerEvent) toRemove))) {
             return true;
         }
         return false;

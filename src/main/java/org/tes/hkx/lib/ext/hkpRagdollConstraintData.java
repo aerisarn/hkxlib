@@ -27,7 +27,7 @@ public class hkpRagdollConstraintData
 {
 
     private String userData;
-    private Unnamed54 atoms;
+    private innerRagdollConstraintAtomInfo atoms;
 
     public hkpRagdollConstraintData() {
         setUserData("0");
@@ -46,11 +46,11 @@ public class hkpRagdollConstraintData
     }
 
     @XmlElement(name = "hkparam[@name=\"atoms\"]/hkobject")
-    public Unnamed54 getAtoms() {
+    public innerRagdollConstraintAtomInfo getAtoms() {
         return atoms;
     }
 
-    public void setAtoms(Unnamed54 newAtoms) {
+    public void setAtoms(innerRagdollConstraintAtomInfo newAtoms) {
         this.atoms = newAtoms;
     }
 

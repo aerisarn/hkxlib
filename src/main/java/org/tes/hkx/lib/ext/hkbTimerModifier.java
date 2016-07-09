@@ -37,7 +37,7 @@ public class hkbTimerModifier
     private String childname;
     private String enable;
     private String alarmTimeSeconds;
-    private Unnamed42 alarmEvent;
+    private innerEvent alarmEvent;
 
     public hkbTimerModifier() {
         setVariableBindingSet(null);
@@ -101,11 +101,11 @@ public class hkbTimerModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"alarmEvent\"]/hkobject")
-    public Unnamed42 getAlarmEvent() {
+    public innerEvent getAlarmEvent() {
         return alarmEvent;
     }
 
-    public void setAlarmEvent(Unnamed42 newAlarmEvent) {
+    public void setAlarmEvent(innerEvent newAlarmEvent) {
         this.alarmEvent = newAlarmEvent;
     }
 

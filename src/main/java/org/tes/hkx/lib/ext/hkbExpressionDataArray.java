@@ -27,12 +27,12 @@ public class hkbExpressionDataArray
 {
 
     @XmlElement(name = "hkparam[@name=\"expressionsData\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed72> expressionsData;
+    private ArrayList<org.tes.hkx.lib.ext.innerExpression> expressionsData;
     @XmlPath("hkparam[@name=\"expressionsData\"]/@numelements")
     private Integer numexpressionsData;
 
     public hkbExpressionDataArray() {
-        expressionsData = new ArrayList<org.tes.hkx.lib.ext.Unnamed72>();
+        expressionsData = new ArrayList<org.tes.hkx.lib.ext.innerExpression>();
         numexpressionsData = 0;
         setClazz("hkbExpressionDataArray");
     }
@@ -41,15 +41,15 @@ public class hkbExpressionDataArray
         return numexpressionsData;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed72> getExpressionsData() {
+    public Iterable<org.tes.hkx.lib.ext.innerExpression> getExpressionsData() {
         return expressionsData;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed72 getExpressionsDataAt(int index) {
+    public org.tes.hkx.lib.ext.innerExpression getExpressionsDataAt(int index) {
         return expressionsData.get(index);
     }
 
-    public boolean addToExpressionsData(org.tes.hkx.lib.ext.Unnamed72 newExpressionsData) {
+    public boolean addToExpressionsData(org.tes.hkx.lib.ext.innerExpression newExpressionsData) {
         if (expressionsData.add(newExpressionsData)) {
             numexpressionsData += 1;
             return true;
@@ -58,7 +58,7 @@ public class hkbExpressionDataArray
     }
 
     @ObjectLink
-    public boolean removeFromExpressionsData(org.tes.hkx.lib.ext.Unnamed72 expressionsDataToRemove) {
+    public boolean removeFromExpressionsData(org.tes.hkx.lib.ext.innerExpression expressionsDataToRemove) {
         if (expressionsData.remove(expressionsDataToRemove)) {
             numexpressionsData += -1;
             return true;
@@ -66,8 +66,8 @@ public class hkbExpressionDataArray
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed72 removeFromExpressionsDataAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed72 toRemove;
+    public org.tes.hkx.lib.ext.innerExpression removeFromExpressionsDataAt(int index) {
+        org.tes.hkx.lib.ext.innerExpression toRemove;
         toRemove = expressionsData.remove(index);
         if (!(null == toRemove)) {
             numexpressionsData += -1;
@@ -79,7 +79,7 @@ public class hkbExpressionDataArray
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed72 child: getExpressionsData()) {
+        for (org.tes.hkx.lib.ext.innerExpression child: getExpressionsData()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -88,7 +88,7 @@ public class hkbExpressionDataArray
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed72 child: getExpressionsData()) {
+        for (org.tes.hkx.lib.ext.innerExpression child: getExpressionsData()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -97,7 +97,7 @@ public class hkbExpressionDataArray
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed72 child: getExpressionsData()) {
+        for (org.tes.hkx.lib.ext.innerExpression child: getExpressionsData()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -105,7 +105,7 @@ public class hkbExpressionDataArray
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed72)&&removeFromExpressionsData(((org.tes.hkx.lib.ext.Unnamed72) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerExpression)&&removeFromExpressionsData(((org.tes.hkx.lib.ext.innerExpression) toRemove))) {
             return true;
         }
         return false;

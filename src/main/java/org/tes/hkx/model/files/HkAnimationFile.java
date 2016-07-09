@@ -3,7 +3,7 @@ package org.tes.hkx.model.files;
 import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkpackfileType;
-import org.tes.hkx.lib.ext.Unnamed1;
+import org.tes.hkx.lib.ext.innerFieldVariants;
 import org.tes.hkx.lib.ext.hkaAnimationContainer;
 import org.tes.hkx.model.HkFile;
 
@@ -15,26 +15,29 @@ public class HkAnimationFile extends HkFile {
 	private String fileName;
 
 	private void setup() throws Exception {
-		for (Unnamed1 variant : getRoot().getNamedVariants()) {
-			if (!(variant.getVariant() instanceof hkaAnimationContainer)) {
-				throw new Exception(
-						"Expected object class: hkaAnimationContainer. found: " + variant.getVariant().getClazz());
+		boolean hasAnimation = false;
+		for (innerFieldVariants variant : getRoot().getNamedVariants()) {
+			if (variant.getVariant() instanceof hkaAnimationContainer) {
+				hasAnimation = true;
 			}
 		}
+		if (!hasAnimation)
+			throw new Exception("Cannot find expected object class: hkaAnimationContainer");
+
 	}
-	
+
 	public HkAnimationFile(HkpackfileType source) throws Exception {
 		super(source);
 		setup();
 	}
-	
+
 	public HkAnimationFile(String name) throws Exception {
 		this();
 		setFileName(name);
 	}
-	
+
 	public HkAnimationFile() throws NegativeArraySizeException, JAXBException {
-		Unnamed1 variant = new Unnamed1();
+		innerFieldVariants variant = new innerFieldVariants();
 		variant.setClassName(variantClassName);
 		variant.setName(variantName);
 		hkaAnimationContainer container = new hkaAnimationContainer();

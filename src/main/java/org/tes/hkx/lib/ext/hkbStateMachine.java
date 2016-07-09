@@ -3,12 +3,14 @@ package org.tes.hkx.lib.ext;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorValue;
 import org.eclipse.persistence.oxm.annotations.XmlPath;
 import org.tes.hkx.lib.HkobjectType;
@@ -47,7 +49,7 @@ public class hkbStateMachine
     private hkbVariableBindingSet variableBindingSet;
     private String userData;
     private String childname;
-    private Unnamed35 eventToSendWhenStateOrTransitionChanges;
+    private innerEvent eventToSendWhenStateOrTransitionChanges;
     private String startStateChooser;
     private String startStateId;
     private String returnToPreviousStateEventId;
@@ -121,11 +123,11 @@ public class hkbStateMachine
     }
 
     @XmlElement(name = "hkparam[@name=\"eventToSendWhenStateOrTransitionChanges\"]/hkobject")
-    public Unnamed35 getEventToSendWhenStateOrTransitionChanges() {
+    public innerEvent getEventToSendWhenStateOrTransitionChanges() {
         return eventToSendWhenStateOrTransitionChanges;
     }
 
-    public void setEventToSendWhenStateOrTransitionChanges(Unnamed35 newEventToSendWhenStateOrTransitionChanges) {
+    public void setEventToSendWhenStateOrTransitionChanges(innerEvent newEventToSendWhenStateOrTransitionChanges) {
         this.eventToSendWhenStateOrTransitionChanges = newEventToSendWhenStateOrTransitionChanges;
     }
 

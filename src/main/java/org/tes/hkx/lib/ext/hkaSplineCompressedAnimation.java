@@ -53,7 +53,7 @@ public class hkaSplineCompressedAnimation
     private String numberOfFloatTracks;
     private hkaDefaultAnimatedReferenceFrame extractedMotion;
     @XmlElement(name = "hkparam[@name=\"annotationTracks\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed53> annotationTracks;
+    private ArrayList<org.tes.hkx.lib.ext.innerTrackInfo> annotationTracks;
     @XmlPath("hkparam[@name=\"annotationTracks\"]/@numelements")
     private Integer numannotationTracks;
     private String numFrames;
@@ -96,7 +96,7 @@ public class hkaSplineCompressedAnimation
         setNumberOfTransformTracks("99");
         setNumberOfFloatTracks("0");
         setExtractedMotion(null);
-        annotationTracks = new ArrayList<org.tes.hkx.lib.ext.Unnamed53>();
+        annotationTracks = new ArrayList<org.tes.hkx.lib.ext.innerTrackInfo>();
         numannotationTracks = 0;
         setNumFrames("31");
         setNumBlocks("1");
@@ -174,15 +174,15 @@ public class hkaSplineCompressedAnimation
         return numannotationTracks;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed53> getAnnotationTracks() {
+    public Iterable<org.tes.hkx.lib.ext.innerTrackInfo> getAnnotationTracks() {
         return annotationTracks;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed53 getAnnotationTracksAt(int index) {
+    public org.tes.hkx.lib.ext.innerTrackInfo getAnnotationTracksAt(int index) {
         return annotationTracks.get(index);
     }
 
-    public boolean addToAnnotationTracks(org.tes.hkx.lib.ext.Unnamed53 newAnnotationTracks) {
+    public boolean addToAnnotationTracks(org.tes.hkx.lib.ext.innerTrackInfo newAnnotationTracks) {
         if (annotationTracks.add(newAnnotationTracks)) {
             numannotationTracks += 1;
             return true;
@@ -191,7 +191,7 @@ public class hkaSplineCompressedAnimation
     }
 
     @ObjectLink
-    public boolean removeFromAnnotationTracks(org.tes.hkx.lib.ext.Unnamed53 annotationTracksToRemove) {
+    public boolean removeFromAnnotationTracks(org.tes.hkx.lib.ext.innerTrackInfo annotationTracksToRemove) {
         if (annotationTracks.remove(annotationTracksToRemove)) {
             numannotationTracks += -1;
             return true;
@@ -199,8 +199,8 @@ public class hkaSplineCompressedAnimation
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed53 removeFromAnnotationTracksAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed53 toRemove;
+    public org.tes.hkx.lib.ext.innerTrackInfo removeFromAnnotationTracksAt(int index) {
+        org.tes.hkx.lib.ext.innerTrackInfo toRemove;
         toRemove = annotationTracks.remove(index);
         if (!(null == toRemove)) {
             numannotationTracks += -1;
@@ -485,7 +485,7 @@ public class hkaSplineCompressedAnimation
         if (!(null == getExtractedMotion())) {
             getExtractedMotion().accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed53 child: getAnnotationTracks()) {
+        for (org.tes.hkx.lib.ext.innerTrackInfo child: getAnnotationTracks()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -497,7 +497,7 @@ public class hkaSplineCompressedAnimation
         if (!(null == getExtractedMotion())) {
             getExtractedMotion().accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed53 child: getAnnotationTracks()) {
+        for (org.tes.hkx.lib.ext.innerTrackInfo child: getAnnotationTracks()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -509,7 +509,7 @@ public class hkaSplineCompressedAnimation
         if (!(null == getExtractedMotion())) {
             theseObjects.add(getExtractedMotion());
         }
-        for (org.tes.hkx.lib.ext.Unnamed53 child: getAnnotationTracks()) {
+        for (org.tes.hkx.lib.ext.innerTrackInfo child: getAnnotationTracks()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -521,7 +521,7 @@ public class hkaSplineCompressedAnimation
             setExtractedMotion(null);
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed53)&&removeFromAnnotationTracks(((org.tes.hkx.lib.ext.Unnamed53) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerTrackInfo)&&removeFromAnnotationTracks(((org.tes.hkx.lib.ext.innerTrackInfo) toRemove))) {
             return true;
         }
         return false;

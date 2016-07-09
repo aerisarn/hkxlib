@@ -36,7 +36,7 @@ public class hkbRigidBodyRagdollControlsModifier
     private String userData;
     private String childname;
     private String enable;
-    private Unnamed82 controlData;
+    private innerRigidBodyControlData controlData;
     private hkbBoneIndexArray bones;
 
     public hkbRigidBodyRagdollControlsModifier() {
@@ -91,11 +91,11 @@ public class hkbRigidBodyRagdollControlsModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"controlData\"]/hkobject")
-    public Unnamed82 getControlData() {
+    public innerRigidBodyControlData getControlData() {
         return controlData;
     }
 
-    public void setControlData(Unnamed82 newControlData) {
+    public void setControlData(innerRigidBodyControlData newControlData) {
         this.controlData = newControlData;
     }
 

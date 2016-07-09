@@ -44,16 +44,17 @@ public class HkObjectTreeNodeBuilder implements IHkParentVisitor<DefaultMutableT
 				return;
 			}
 			DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(obj);
-			if (obj.getClass().getSuperclass().equals(HkobjectType.class)) {
-				if (parent.getClass().getSuperclass().equals(HkobjectType.class))
-				{
-					parentNode.add(newNode);
-					lasthkparent = parentNode;
-				} else {
-					lasthkparent.add(newNode);
-				}
-				
-			}
+//			if (obj.getClass().getSuperclass().equals(HkobjectType.class)) {
+//				if (parent.getClass().getSuperclass().equals(HkobjectType.class))
+//				{
+//					parentNode.add(newNode);
+//					lasthkparent = parentNode;
+//				} else {
+//					lasthkparent.add(newNode);
+//				}
+//				
+//			}
+			parentNode.add(newNode);
 			nodeMap.put(obj, newNode);	
 			visitedSet.add(obj);
 		}

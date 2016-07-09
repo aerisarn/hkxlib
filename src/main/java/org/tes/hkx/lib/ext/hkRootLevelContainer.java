@@ -27,12 +27,12 @@ public class hkRootLevelContainer
 {
 
     @XmlElement(name = "hkparam[@name=\"namedVariants\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed1> namedVariants;
+    private ArrayList<org.tes.hkx.lib.ext.innerFieldVariants> namedVariants;
     @XmlPath("hkparam[@name=\"namedVariants\"]/@numelements")
     private Integer numnamedVariants;
 
     public hkRootLevelContainer() {
-        namedVariants = new ArrayList<org.tes.hkx.lib.ext.Unnamed1>();
+        namedVariants = new ArrayList<org.tes.hkx.lib.ext.innerFieldVariants>();
         numnamedVariants = 0;
         setClazz("hkRootLevelContainer");
     }
@@ -41,15 +41,15 @@ public class hkRootLevelContainer
         return numnamedVariants;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed1> getNamedVariants() {
+    public Iterable<org.tes.hkx.lib.ext.innerFieldVariants> getNamedVariants() {
         return namedVariants;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed1 getNamedVariantsAt(int index) {
+    public org.tes.hkx.lib.ext.innerFieldVariants getNamedVariantsAt(int index) {
         return namedVariants.get(index);
     }
 
-    public boolean addToNamedVariants(org.tes.hkx.lib.ext.Unnamed1 newNamedVariants) {
+    public boolean addToNamedVariants(org.tes.hkx.lib.ext.innerFieldVariants newNamedVariants) {
         if (namedVariants.add(newNamedVariants)) {
             numnamedVariants += 1;
             return true;
@@ -58,7 +58,7 @@ public class hkRootLevelContainer
     }
 
     @ObjectLink
-    public boolean removeFromNamedVariants(org.tes.hkx.lib.ext.Unnamed1 namedVariantsToRemove) {
+    public boolean removeFromNamedVariants(org.tes.hkx.lib.ext.innerFieldVariants namedVariantsToRemove) {
         if (namedVariants.remove(namedVariantsToRemove)) {
             numnamedVariants += -1;
             return true;
@@ -66,8 +66,8 @@ public class hkRootLevelContainer
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed1 removeFromNamedVariantsAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed1 toRemove;
+    public org.tes.hkx.lib.ext.innerFieldVariants removeFromNamedVariantsAt(int index) {
+        org.tes.hkx.lib.ext.innerFieldVariants toRemove;
         toRemove = namedVariants.remove(index);
         if (!(null == toRemove)) {
             numnamedVariants += -1;
@@ -79,7 +79,7 @@ public class hkRootLevelContainer
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed1 child: getNamedVariants()) {
+        for (org.tes.hkx.lib.ext.innerFieldVariants child: getNamedVariants()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -88,7 +88,7 @@ public class hkRootLevelContainer
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed1 child: getNamedVariants()) {
+        for (org.tes.hkx.lib.ext.innerFieldVariants child: getNamedVariants()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -97,7 +97,7 @@ public class hkRootLevelContainer
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed1 child: getNamedVariants()) {
+        for (org.tes.hkx.lib.ext.innerFieldVariants child: getNamedVariants()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -105,7 +105,7 @@ public class hkRootLevelContainer
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed1)&&removeFromNamedVariants(((org.tes.hkx.lib.ext.Unnamed1) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerFieldVariants)&&removeFromNamedVariants(((org.tes.hkx.lib.ext.innerFieldVariants) toRemove))) {
             return true;
         }
         return false;

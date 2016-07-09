@@ -38,7 +38,7 @@ public class BSIStateManagerModifier
     private String enable;
     private String iStateVar;
     @XmlElement(name = "hkparam[@name=\"stateData\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed43> stateData;
+    private ArrayList<org.tes.hkx.lib.ext.innerStateData> stateData;
     @XmlPath("hkparam[@name=\"stateData\"]/@numelements")
     private Integer numstateData;
 
@@ -48,7 +48,7 @@ public class BSIStateManagerModifier
         setName("Spriggan_iStateManager");
         setEnable("true");
         setIStateVar("0");
-        stateData = new ArrayList<org.tes.hkx.lib.ext.Unnamed43>();
+        stateData = new ArrayList<org.tes.hkx.lib.ext.innerStateData>();
         numstateData = 0;
         setClazz("BSIStateManagerModifier");
     }
@@ -108,15 +108,15 @@ public class BSIStateManagerModifier
         return numstateData;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed43> getStateData() {
+    public Iterable<org.tes.hkx.lib.ext.innerStateData> getStateData() {
         return stateData;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed43 getStateDataAt(int index) {
+    public org.tes.hkx.lib.ext.innerStateData getStateDataAt(int index) {
         return stateData.get(index);
     }
 
-    public boolean addToStateData(org.tes.hkx.lib.ext.Unnamed43 newStateData) {
+    public boolean addToStateData(org.tes.hkx.lib.ext.innerStateData newStateData) {
         if (stateData.add(newStateData)) {
             numstateData += 1;
             return true;
@@ -125,7 +125,7 @@ public class BSIStateManagerModifier
     }
 
     @ObjectLink
-    public boolean removeFromStateData(org.tes.hkx.lib.ext.Unnamed43 stateDataToRemove) {
+    public boolean removeFromStateData(org.tes.hkx.lib.ext.innerStateData stateDataToRemove) {
         if (stateData.remove(stateDataToRemove)) {
             numstateData += -1;
             return true;
@@ -133,8 +133,8 @@ public class BSIStateManagerModifier
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed43 removeFromStateDataAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed43 toRemove;
+    public org.tes.hkx.lib.ext.innerStateData removeFromStateDataAt(int index) {
+        org.tes.hkx.lib.ext.innerStateData toRemove;
         toRemove = stateData.remove(index);
         if (!(null == toRemove)) {
             numstateData += -1;
@@ -149,7 +149,7 @@ public class BSIStateManagerModifier
         if (!(null == getVariableBindingSet())) {
             getVariableBindingSet().accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed43 child: getStateData()) {
+        for (org.tes.hkx.lib.ext.innerStateData child: getStateData()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -161,7 +161,7 @@ public class BSIStateManagerModifier
         if (!(null == getVariableBindingSet())) {
             getVariableBindingSet().accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed43 child: getStateData()) {
+        for (org.tes.hkx.lib.ext.innerStateData child: getStateData()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -173,7 +173,7 @@ public class BSIStateManagerModifier
         if (!(null == getVariableBindingSet())) {
             theseObjects.add(getVariableBindingSet());
         }
-        for (org.tes.hkx.lib.ext.Unnamed43 child: getStateData()) {
+        for (org.tes.hkx.lib.ext.innerStateData child: getStateData()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -185,7 +185,7 @@ public class BSIStateManagerModifier
             setVariableBindingSet(null);
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed43)&&removeFromStateData(((org.tes.hkx.lib.ext.Unnamed43) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerStateData)&&removeFromStateData(((org.tes.hkx.lib.ext.innerStateData) toRemove))) {
             return true;
         }
         return false;

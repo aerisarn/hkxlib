@@ -38,7 +38,7 @@ public class BSTimerModifier
     private String childname;
     private String enable;
     private String alarmTimeSeconds;
-    private Unnamed38 alarmEvent;
+    private innerEvent alarmEvent;
     private String resetAlarm;
 
     public BSTimerModifier() {
@@ -104,11 +104,11 @@ public class BSTimerModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"alarmEvent\"]/hkobject")
-    public Unnamed38 getAlarmEvent() {
+    public innerEvent getAlarmEvent() {
         return alarmEvent;
     }
 
-    public void setAlarmEvent(Unnamed38 newAlarmEvent) {
+    public void setAlarmEvent(innerEvent newAlarmEvent) {
         this.alarmEvent = newAlarmEvent;
     }
 

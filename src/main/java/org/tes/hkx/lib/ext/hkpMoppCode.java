@@ -29,7 +29,7 @@ public class hkpMoppCode
     implements IHkContainer, IHkVisitable
 {
 
-    private Unnamed84 info;
+    private innerMoppCodeInfo info;
     @XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
     @XmlPath("hkparam[@name=\"data\"]/text()")
     private ArrayList<String> data;
@@ -46,11 +46,11 @@ public class hkpMoppCode
     }
 
     @XmlElement(name = "hkparam[@name=\"info\"]/hkobject")
-    public Unnamed84 getInfo() {
+    public innerMoppCodeInfo getInfo() {
         return info;
     }
 
-    public void setInfo(Unnamed84 newInfo) {
+    public void setInfo(innerMoppCodeInfo newInfo) {
         this.info = newInfo;
     }
 

@@ -46,15 +46,15 @@ public class hkpRigidBody
 {
 
     private String userData;
-    private Unnamed64 collidable;
-    private Unnamed66 multiThreadCheck;
+    private innerCollidable collidable;
+    private innerMultiThreadCheckInfo multiThreadCheck;
     private String childname;
     @XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
     @XmlPath("hkparam[@name=\"properties\"]/text()")
     private ArrayList<String> properties;
     @XmlPath("hkparam[@name=\"properties\"]/@numelements")
     private Integer numproperties;
-    private Unnamed67 material;
+    private innerMaterialInfo material;
     private String damageMultiplier;
     private String storageIndex;
     private String contactPointCallbackDelay;
@@ -62,8 +62,8 @@ public class hkpRigidBody
     private String numShapeKeysInContactPointProperties;
     private HkobjectType responseModifierFlags;
     private String uid;
-    private Unnamed68 spuCollisionCallback;
-    private Unnamed69 motion;
+    private innerSPUCollisionCallback spuCollisionCallback;
+    private innerMotionInfo motion;
     private String localFrame;
     private String npData;
 
@@ -100,20 +100,20 @@ public class hkpRigidBody
     }
 
     @XmlElement(name = "hkparam[@name=\"collidable\"]/hkobject")
-    public Unnamed64 getCollidable() {
+    public innerCollidable getCollidable() {
         return collidable;
     }
 
-    public void setCollidable(Unnamed64 newCollidable) {
+    public void setCollidable(innerCollidable newCollidable) {
         this.collidable = newCollidable;
     }
 
     @XmlElement(name = "hkparam[@name=\"multiThreadCheck\"]/hkobject")
-    public Unnamed66 getMultiThreadCheck() {
+    public innerMultiThreadCheckInfo getMultiThreadCheck() {
         return multiThreadCheck;
     }
 
-    public void setMultiThreadCheck(Unnamed66 newMultiThreadCheck) {
+    public void setMultiThreadCheck(innerMultiThreadCheckInfo newMultiThreadCheck) {
         this.multiThreadCheck = newMultiThreadCheck;
     }
 
@@ -166,11 +166,11 @@ public class hkpRigidBody
     }
 
     @XmlElement(name = "hkparam[@name=\"material\"]/hkobject")
-    public Unnamed67 getMaterial() {
+    public innerMaterialInfo getMaterial() {
         return material;
     }
 
-    public void setMaterial(Unnamed67 newMaterial) {
+    public void setMaterial(innerMaterialInfo newMaterial) {
         this.material = newMaterial;
     }
 
@@ -246,20 +246,20 @@ public class hkpRigidBody
     }
 
     @XmlElement(name = "hkparam[@name=\"spuCollisionCallback\"]/hkobject")
-    public Unnamed68 getSpuCollisionCallback() {
+    public innerSPUCollisionCallback getSpuCollisionCallback() {
         return spuCollisionCallback;
     }
 
-    public void setSpuCollisionCallback(Unnamed68 newSpuCollisionCallback) {
+    public void setSpuCollisionCallback(innerSPUCollisionCallback newSpuCollisionCallback) {
         this.spuCollisionCallback = newSpuCollisionCallback;
     }
 
     @XmlElement(name = "hkparam[@name=\"motion\"]/hkobject")
-    public Unnamed69 getMotion() {
+    public innerMotionInfo getMotion() {
         return motion;
     }
 
-    public void setMotion(Unnamed69 newMotion) {
+    public void setMotion(innerMotionInfo newMotion) {
         this.motion = newMotion;
     }
 

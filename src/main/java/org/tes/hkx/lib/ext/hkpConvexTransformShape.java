@@ -30,7 +30,7 @@ public class hkpConvexTransformShape
 
     private String userData;
     private String radius;
-    private Unnamed81 childShape;
+    private innerCapsuleShapeInfo childShape;
     private String transform;
 
     public hkpConvexTransformShape() {
@@ -62,11 +62,11 @@ public class hkpConvexTransformShape
     }
 
     @XmlElement(name = "hkparam[@name=\"childShape\"]/hkobject")
-    public Unnamed81 getChildShape() {
+    public innerCapsuleShapeInfo getChildShape() {
         return childShape;
     }
 
-    public void setChildShape(Unnamed81 newChildShape) {
+    public void setChildShape(innerCapsuleShapeInfo newChildShape) {
         this.childShape = newChildShape;
     }
 

@@ -33,7 +33,7 @@ public class hkpMoppBvTreeShape
     private String userData;
     private String bvTreeType;
     private hkpMoppCode code;
-    private Unnamed41 child;
+    private innerListShapeInfo child;
 
     public hkpMoppBvTreeShape() {
         setUserData("0");
@@ -75,11 +75,11 @@ public class hkpMoppBvTreeShape
     }
 
     @XmlElement(name = "hkparam[@name=\"child\"]/hkobject")
-    public Unnamed41 getChild() {
+    public innerListShapeInfo getChild() {
         return child;
     }
 
-    public void setChild(Unnamed41 newChild) {
+    public void setChild(innerListShapeInfo newChild) {
         this.child = newChild;
     }
 

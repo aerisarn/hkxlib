@@ -3,11 +3,13 @@ package org.tes.hkx.lib.ext;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorValue;
 import org.eclipse.persistence.oxm.annotations.XmlPath;
 import org.tes.hkx.lib.HkobjectType;
@@ -52,11 +54,11 @@ public class BSLookAtModifier
     private String enable;
     private String lookAtTarget;
     @XmlElement(name = "hkparam[@name=\"bones\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed78> bones;
+    private ArrayList<org.tes.hkx.lib.ext.innerLookModifierBonesInfo> bones;
     @XmlPath("hkparam[@name=\"bones\"]/@numelements")
     private Integer numbones;
     @XmlElement(name = "hkparam[@name=\"eyeBones\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed79> eyeBones;
+    private ArrayList<org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo> eyeBones;
     @XmlPath("hkparam[@name=\"eyeBones\"]/@numelements")
     private Integer numeyeBones;
     private String limitAngleDegrees;
@@ -67,7 +69,7 @@ public class BSLookAtModifier
     private String useBoneGains;
     private String targetLocation;
     private String targetOutsideLimits;
-    private Unnamed80 targetOutOfLimitEvent;
+    private innerEvent targetOutOfLimitEvent;
     private String lookAtCamera;
     private String lookAtCameraX;
     private String lookAtCameraY;
@@ -79,9 +81,9 @@ public class BSLookAtModifier
         setName("BSLookAtModifier");
         setEnable("true");
         setLookAtTarget("true");
-        bones = new ArrayList<org.tes.hkx.lib.ext.Unnamed78>();
+        bones = new ArrayList<org.tes.hkx.lib.ext.innerLookModifierBonesInfo>();
         numbones = 0;
-        eyeBones = new ArrayList<org.tes.hkx.lib.ext.Unnamed79>();
+        eyeBones = new ArrayList<org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo>();
         numeyeBones = 0;
         setLimitAngleDegrees("65.000000");
         setLimitAngleThresholdDegrees("0.000000");
@@ -154,15 +156,15 @@ public class BSLookAtModifier
         return numbones;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed78> getBones() {
+    public Iterable<org.tes.hkx.lib.ext.innerLookModifierBonesInfo> getBones() {
         return bones;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed78 getBonesAt(int index) {
+    public org.tes.hkx.lib.ext.innerLookModifierBonesInfo getBonesAt(int index) {
         return bones.get(index);
     }
 
-    public boolean addToBones(org.tes.hkx.lib.ext.Unnamed78 newBones) {
+    public boolean addToBones(org.tes.hkx.lib.ext.innerLookModifierBonesInfo newBones) {
         if (bones.add(newBones)) {
             numbones += 1;
             return true;
@@ -171,7 +173,7 @@ public class BSLookAtModifier
     }
 
     @ObjectLink
-    public boolean removeFromBones(org.tes.hkx.lib.ext.Unnamed78 bonesToRemove) {
+    public boolean removeFromBones(org.tes.hkx.lib.ext.innerLookModifierBonesInfo bonesToRemove) {
         if (bones.remove(bonesToRemove)) {
             numbones += -1;
             return true;
@@ -179,8 +181,8 @@ public class BSLookAtModifier
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed78 removeFromBonesAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed78 toRemove;
+    public org.tes.hkx.lib.ext.innerLookModifierBonesInfo removeFromBonesAt(int index) {
+        org.tes.hkx.lib.ext.innerLookModifierBonesInfo toRemove;
         toRemove = bones.remove(index);
         if (!(null == toRemove)) {
             numbones += -1;
@@ -193,15 +195,15 @@ public class BSLookAtModifier
         return numeyeBones;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed79> getEyeBones() {
+    public Iterable<org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo> getEyeBones() {
         return eyeBones;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed79 getEyeBonesAt(int index) {
+    public org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo getEyeBonesAt(int index) {
         return eyeBones.get(index);
     }
 
-    public boolean addToEyeBones(org.tes.hkx.lib.ext.Unnamed79 newEyeBones) {
+    public boolean addToEyeBones(org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo newEyeBones) {
         if (eyeBones.add(newEyeBones)) {
             numeyeBones += 1;
             return true;
@@ -210,7 +212,7 @@ public class BSLookAtModifier
     }
 
     @ObjectLink
-    public boolean removeFromEyeBones(org.tes.hkx.lib.ext.Unnamed79 eyeBonesToRemove) {
+    public boolean removeFromEyeBones(org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo eyeBonesToRemove) {
         if (eyeBones.remove(eyeBonesToRemove)) {
             numeyeBones += -1;
             return true;
@@ -218,8 +220,8 @@ public class BSLookAtModifier
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed79 removeFromEyeBonesAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed79 toRemove;
+    public org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo removeFromEyeBonesAt(int index) {
+        org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo toRemove;
         toRemove = eyeBones.remove(index);
         if (!(null == toRemove)) {
             numeyeBones += -1;
@@ -309,11 +311,11 @@ public class BSLookAtModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"targetOutOfLimitEvent\"]/hkobject")
-    public Unnamed80 getTargetOutOfLimitEvent() {
+    public innerEvent getTargetOutOfLimitEvent() {
         return targetOutOfLimitEvent;
     }
 
-    public void setTargetOutOfLimitEvent(Unnamed80 newTargetOutOfLimitEvent) {
+    public void setTargetOutOfLimitEvent(innerEvent newTargetOutOfLimitEvent) {
         this.targetOutOfLimitEvent = newTargetOutOfLimitEvent;
     }
 
@@ -363,10 +365,10 @@ public class BSLookAtModifier
         if (!(null == getVariableBindingSet())) {
             getVariableBindingSet().accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed78 child: getBones()) {
+        for (org.tes.hkx.lib.ext.innerLookModifierBonesInfo child: getBones()) {
             child.accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed79 child: getEyeBones()) {
+        for (org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo child: getEyeBones()) {
             child.accept(visitor);
         }
         if (!(null == getTargetOutOfLimitEvent())) {
@@ -381,10 +383,10 @@ public class BSLookAtModifier
         if (!(null == getVariableBindingSet())) {
             getVariableBindingSet().accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed78 child: getBones()) {
+        for (org.tes.hkx.lib.ext.innerLookModifierBonesInfo child: getBones()) {
             child.accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed79 child: getEyeBones()) {
+        for (org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo child: getEyeBones()) {
             child.accept(visitor, this);
         }
         if (!(null == getTargetOutOfLimitEvent())) {
@@ -399,10 +401,10 @@ public class BSLookAtModifier
         if (!(null == getVariableBindingSet())) {
             theseObjects.add(getVariableBindingSet());
         }
-        for (org.tes.hkx.lib.ext.Unnamed78 child: getBones()) {
+        for (org.tes.hkx.lib.ext.innerLookModifierBonesInfo child: getBones()) {
             theseObjects.add(child);
         }
-        for (org.tes.hkx.lib.ext.Unnamed79 child: getEyeBones()) {
+        for (org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo child: getEyeBones()) {
             theseObjects.add(child);
         }
         if (!(null == getTargetOutOfLimitEvent())) {
@@ -417,10 +419,10 @@ public class BSLookAtModifier
             setVariableBindingSet(null);
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed78)&&removeFromBones(((org.tes.hkx.lib.ext.Unnamed78) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerLookModifierBonesInfo)&&removeFromBones(((org.tes.hkx.lib.ext.innerLookModifierBonesInfo) toRemove))) {
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed79)&&removeFromEyeBones(((org.tes.hkx.lib.ext.Unnamed79) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo)&&removeFromEyeBones(((org.tes.hkx.lib.ext.innerLookModifierEyeBonesInfo) toRemove))) {
             return true;
         }
         if ((getTargetOutOfLimitEvent()!= null)&&getTargetOutOfLimitEvent().equals(toRemove)) {

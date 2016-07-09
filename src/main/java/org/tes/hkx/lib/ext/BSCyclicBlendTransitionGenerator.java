@@ -39,8 +39,8 @@ public class BSCyclicBlendTransitionGenerator
     private String userData;
     private String childname;
     private HkobjectType pBlenderGenerator;
-    private Unnamed39 EventToFreezeBlendValue;
-    private Unnamed40 EventToCrossBlend;
+    private innerEvent EventToFreezeBlendValue;
+    private innerEvent EventToCrossBlend;
     private String fBlendParameter;
     private String fTransitionDuration;
     private String eBlendCurve;
@@ -101,20 +101,20 @@ public class BSCyclicBlendTransitionGenerator
     }
 
     @XmlElement(name = "hkparam[@name=\"EventToFreezeBlendValue\"]/hkobject")
-    public Unnamed39 getEventToFreezeBlendValue() {
+    public innerEvent getEventToFreezeBlendValue() {
         return EventToFreezeBlendValue;
     }
 
-    public void setEventToFreezeBlendValue(Unnamed39 newEventToFreezeBlendValue) {
+    public void setEventToFreezeBlendValue(innerEvent newEventToFreezeBlendValue) {
         this.EventToFreezeBlendValue = newEventToFreezeBlendValue;
     }
 
     @XmlElement(name = "hkparam[@name=\"EventToCrossBlend\"]/hkobject")
-    public Unnamed40 getEventToCrossBlend() {
+    public innerEvent getEventToCrossBlend() {
         return EventToCrossBlend;
     }
 
-    public void setEventToCrossBlend(Unnamed40 newEventToCrossBlend) {
+    public void setEventToCrossBlend(innerEvent newEventToCrossBlend) {
         this.EventToCrossBlend = newEventToCrossBlend;
     }
 

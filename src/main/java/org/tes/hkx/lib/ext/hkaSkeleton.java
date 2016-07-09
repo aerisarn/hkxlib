@@ -41,7 +41,7 @@ public class hkaSkeleton
     @XmlPath("hkparam[@name=\"parentIndices\"]/@numelements")
     private Integer numparentIndices;
     @XmlElement(name = "hkparam[@name=\"bones\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed63> bones;
+    private ArrayList<org.tes.hkx.lib.ext.innerBoneInfo> bones;
     @XmlPath("hkparam[@name=\"bones\"]/@numelements")
     private Integer numbones;
     @XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
@@ -67,7 +67,7 @@ public class hkaSkeleton
         setName("Base01");
         parentIndices = new ArrayList<String>();
         numparentIndices = 0;
-        bones = new ArrayList<org.tes.hkx.lib.ext.Unnamed63>();
+        bones = new ArrayList<org.tes.hkx.lib.ext.innerBoneInfo>();
         numbones = 0;
         referencePose = new ArrayList<String>();
         numreferencePose = 0;
@@ -132,15 +132,15 @@ public class hkaSkeleton
         return numbones;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed63> getBones() {
+    public Iterable<org.tes.hkx.lib.ext.innerBoneInfo> getBones() {
         return bones;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed63 getBonesAt(int index) {
+    public org.tes.hkx.lib.ext.innerBoneInfo getBonesAt(int index) {
         return bones.get(index);
     }
 
-    public boolean addToBones(org.tes.hkx.lib.ext.Unnamed63 newBones) {
+    public boolean addToBones(org.tes.hkx.lib.ext.innerBoneInfo newBones) {
         if (bones.add(newBones)) {
             numbones += 1;
             return true;
@@ -149,7 +149,7 @@ public class hkaSkeleton
     }
 
     @ObjectLink
-    public boolean removeFromBones(org.tes.hkx.lib.ext.Unnamed63 bonesToRemove) {
+    public boolean removeFromBones(org.tes.hkx.lib.ext.innerBoneInfo bonesToRemove) {
         if (bones.remove(bonesToRemove)) {
             numbones += -1;
             return true;
@@ -157,8 +157,8 @@ public class hkaSkeleton
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed63 removeFromBonesAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed63 toRemove;
+    public org.tes.hkx.lib.ext.innerBoneInfo removeFromBonesAt(int index) {
+        org.tes.hkx.lib.ext.innerBoneInfo toRemove;
         toRemove = bones.remove(index);
         if (!(null == toRemove)) {
             numbones += -1;
@@ -322,7 +322,7 @@ public class hkaSkeleton
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed63 child: getBones()) {
+        for (org.tes.hkx.lib.ext.innerBoneInfo child: getBones()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -331,7 +331,7 @@ public class hkaSkeleton
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed63 child: getBones()) {
+        for (org.tes.hkx.lib.ext.innerBoneInfo child: getBones()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -340,7 +340,7 @@ public class hkaSkeleton
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed63 child: getBones()) {
+        for (org.tes.hkx.lib.ext.innerBoneInfo child: getBones()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -348,7 +348,7 @@ public class hkaSkeleton
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed63)&&removeFromBones(((org.tes.hkx.lib.ext.Unnamed63) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerBoneInfo)&&removeFromBones(((org.tes.hkx.lib.ext.innerBoneInfo) toRemove))) {
             return true;
         }
         return false;

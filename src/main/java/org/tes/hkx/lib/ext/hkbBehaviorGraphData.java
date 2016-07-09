@@ -42,23 +42,23 @@ public class hkbBehaviorGraphData
     @XmlPath("hkparam[@name=\"attributeDefaults\"]/@numelements")
     private Integer numattributeDefaults;
     @XmlElement(name = "hkparam[@name=\"variableInfos\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed20> variableInfos;
+    private ArrayList<org.tes.hkx.lib.ext.innerVariableInfo> variableInfos;
     @XmlPath("hkparam[@name=\"variableInfos\"]/@numelements")
     private Integer numvariableInfos;
     @XmlElement(name = "hkparam[@name=\"characterPropertyInfos\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed22> characterPropertyInfos;
+    private ArrayList<org.tes.hkx.lib.ext.innerVariableInfo> characterPropertyInfos;
     @XmlPath("hkparam[@name=\"characterPropertyInfos\"]/@numelements")
     private Integer numcharacterPropertyInfos;
     @XmlElement(name = "hkparam[@name=\"eventInfos\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed24> eventInfos;
+    private ArrayList<org.tes.hkx.lib.ext.innerEventInfo> eventInfos;
     @XmlPath("hkparam[@name=\"eventInfos\"]/@numelements")
     private Integer numeventInfos;
     @XmlElement(name = "hkparam[@name=\"wordMinVariableValues\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed24> wordMinVariableValues;
+    private ArrayList<org.tes.hkx.lib.ext.innerEventInfo> wordMinVariableValues;
     @XmlPath("hkparam[@name=\"wordMinVariableValues\"]/@numelements")
     private Integer numwordMinVariableValues;
     @XmlElement(name = "hkparam[@name=\"wordMaxVariableValues\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed24> wordMaxVariableValues;
+    private ArrayList<org.tes.hkx.lib.ext.innerEventInfo> wordMaxVariableValues;
     @XmlPath("hkparam[@name=\"wordMaxVariableValues\"]/@numelements")
     private Integer numwordMaxVariableValues;
     private hkbVariableValueSet variableInitialValues;
@@ -67,15 +67,15 @@ public class hkbBehaviorGraphData
     public hkbBehaviorGraphData() {
         attributeDefaults = new ArrayList<String>();
         numattributeDefaults = 0;
-        variableInfos = new ArrayList<org.tes.hkx.lib.ext.Unnamed20>();
+        variableInfos = new ArrayList<org.tes.hkx.lib.ext.innerVariableInfo>();
         numvariableInfos = 0;
-        characterPropertyInfos = new ArrayList<org.tes.hkx.lib.ext.Unnamed22>();
+        characterPropertyInfos = new ArrayList<org.tes.hkx.lib.ext.innerVariableInfo>();
         numcharacterPropertyInfos = 0;
-        eventInfos = new ArrayList<org.tes.hkx.lib.ext.Unnamed24>();
+        eventInfos = new ArrayList<org.tes.hkx.lib.ext.innerEventInfo>();
         numeventInfos = 0;
-        wordMinVariableValues = new ArrayList<org.tes.hkx.lib.ext.Unnamed24>();
+        wordMinVariableValues = new ArrayList<org.tes.hkx.lib.ext.innerEventInfo>();
         numwordMinVariableValues = 0;
-        wordMaxVariableValues = new ArrayList<org.tes.hkx.lib.ext.Unnamed24>();
+        wordMaxVariableValues = new ArrayList<org.tes.hkx.lib.ext.innerEventInfo>();
         numwordMaxVariableValues = 0;
         setVariableInitialValues(null);
         setStringData(null);
@@ -124,15 +124,15 @@ public class hkbBehaviorGraphData
         return numvariableInfos;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed20> getVariableInfos() {
+    public Iterable<org.tes.hkx.lib.ext.innerVariableInfo> getVariableInfos() {
         return variableInfos;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed20 getVariableInfosAt(int index) {
+    public org.tes.hkx.lib.ext.innerVariableInfo getVariableInfosAt(int index) {
         return variableInfos.get(index);
     }
 
-    public boolean addToVariableInfos(org.tes.hkx.lib.ext.Unnamed20 newVariableInfos) {
+    public boolean addToVariableInfos(org.tes.hkx.lib.ext.innerVariableInfo newVariableInfos) {
         if (variableInfos.add(newVariableInfos)) {
             numvariableInfos += 1;
             return true;
@@ -141,7 +141,7 @@ public class hkbBehaviorGraphData
     }
 
     @ObjectLink
-    public boolean removeFromVariableInfos(org.tes.hkx.lib.ext.Unnamed20 variableInfosToRemove) {
+    public boolean removeFromVariableInfos(org.tes.hkx.lib.ext.innerVariableInfo variableInfosToRemove) {
         if (variableInfos.remove(variableInfosToRemove)) {
             numvariableInfos += -1;
             return true;
@@ -149,8 +149,8 @@ public class hkbBehaviorGraphData
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed20 removeFromVariableInfosAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed20 toRemove;
+    public org.tes.hkx.lib.ext.innerVariableInfo removeFromVariableInfosAt(int index) {
+        org.tes.hkx.lib.ext.innerVariableInfo toRemove;
         toRemove = variableInfos.remove(index);
         if (!(null == toRemove)) {
             numvariableInfos += -1;
@@ -163,15 +163,15 @@ public class hkbBehaviorGraphData
         return numcharacterPropertyInfos;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed22> getCharacterPropertyInfos() {
+    public Iterable<org.tes.hkx.lib.ext.innerVariableInfo> getCharacterPropertyInfos() {
         return characterPropertyInfos;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed22 getCharacterPropertyInfosAt(int index) {
+    public org.tes.hkx.lib.ext.innerVariableInfo getCharacterPropertyInfosAt(int index) {
         return characterPropertyInfos.get(index);
     }
 
-    public boolean addToCharacterPropertyInfos(org.tes.hkx.lib.ext.Unnamed22 newCharacterPropertyInfos) {
+    public boolean addToCharacterPropertyInfos(org.tes.hkx.lib.ext.innerVariableInfo newCharacterPropertyInfos) {
         if (characterPropertyInfos.add(newCharacterPropertyInfos)) {
             numcharacterPropertyInfos += 1;
             return true;
@@ -180,7 +180,7 @@ public class hkbBehaviorGraphData
     }
 
     @ObjectLink
-    public boolean removeFromCharacterPropertyInfos(org.tes.hkx.lib.ext.Unnamed22 characterPropertyInfosToRemove) {
+    public boolean removeFromCharacterPropertyInfos(org.tes.hkx.lib.ext.innerVariableInfo characterPropertyInfosToRemove) {
         if (characterPropertyInfos.remove(characterPropertyInfosToRemove)) {
             numcharacterPropertyInfos += -1;
             return true;
@@ -188,8 +188,8 @@ public class hkbBehaviorGraphData
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed22 removeFromCharacterPropertyInfosAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed22 toRemove;
+    public org.tes.hkx.lib.ext.innerVariableInfo removeFromCharacterPropertyInfosAt(int index) {
+        org.tes.hkx.lib.ext.innerVariableInfo toRemove;
         toRemove = characterPropertyInfos.remove(index);
         if (!(null == toRemove)) {
             numcharacterPropertyInfos += -1;
@@ -202,15 +202,15 @@ public class hkbBehaviorGraphData
         return numeventInfos;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed24> getEventInfos() {
+    public Iterable<org.tes.hkx.lib.ext.innerEventInfo> getEventInfos() {
         return eventInfos;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed24 getEventInfosAt(int index) {
+    public org.tes.hkx.lib.ext.innerEventInfo getEventInfosAt(int index) {
         return eventInfos.get(index);
     }
 
-    public boolean addToEventInfos(org.tes.hkx.lib.ext.Unnamed24 newEventInfos) {
+    public boolean addToEventInfos(org.tes.hkx.lib.ext.innerEventInfo newEventInfos) {
         if (eventInfos.add(newEventInfos)) {
             numeventInfos += 1;
             return true;
@@ -219,7 +219,7 @@ public class hkbBehaviorGraphData
     }
 
     @ObjectLink
-    public boolean removeFromEventInfos(org.tes.hkx.lib.ext.Unnamed24 eventInfosToRemove) {
+    public boolean removeFromEventInfos(org.tes.hkx.lib.ext.innerEventInfo eventInfosToRemove) {
         if (eventInfos.remove(eventInfosToRemove)) {
             numeventInfos += -1;
             return true;
@@ -227,8 +227,8 @@ public class hkbBehaviorGraphData
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed24 removeFromEventInfosAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed24 toRemove;
+    public org.tes.hkx.lib.ext.innerEventInfo removeFromEventInfosAt(int index) {
+        org.tes.hkx.lib.ext.innerEventInfo toRemove;
         toRemove = eventInfos.remove(index);
         if (!(null == toRemove)) {
             numeventInfos += -1;
@@ -241,15 +241,15 @@ public class hkbBehaviorGraphData
         return numwordMinVariableValues;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed24> getWordMinVariableValues() {
+    public Iterable<org.tes.hkx.lib.ext.innerEventInfo> getWordMinVariableValues() {
         return wordMinVariableValues;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed24 getWordMinVariableValuesAt(int index) {
+    public org.tes.hkx.lib.ext.innerEventInfo getWordMinVariableValuesAt(int index) {
         return wordMinVariableValues.get(index);
     }
 
-    public boolean addToWordMinVariableValues(org.tes.hkx.lib.ext.Unnamed24 newWordMinVariableValues) {
+    public boolean addToWordMinVariableValues(org.tes.hkx.lib.ext.innerEventInfo newWordMinVariableValues) {
         if (wordMinVariableValues.add(newWordMinVariableValues)) {
             numwordMinVariableValues += 1;
             return true;
@@ -258,7 +258,7 @@ public class hkbBehaviorGraphData
     }
 
     @ObjectLink
-    public boolean removeFromWordMinVariableValues(org.tes.hkx.lib.ext.Unnamed24 wordMinVariableValuesToRemove) {
+    public boolean removeFromWordMinVariableValues(org.tes.hkx.lib.ext.innerEventInfo wordMinVariableValuesToRemove) {
         if (wordMinVariableValues.remove(wordMinVariableValuesToRemove)) {
             numwordMinVariableValues += -1;
             return true;
@@ -266,8 +266,8 @@ public class hkbBehaviorGraphData
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed24 removeFromWordMinVariableValuesAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed24 toRemove;
+    public org.tes.hkx.lib.ext.innerEventInfo removeFromWordMinVariableValuesAt(int index) {
+        org.tes.hkx.lib.ext.innerEventInfo toRemove;
         toRemove = wordMinVariableValues.remove(index);
         if (!(null == toRemove)) {
             numwordMinVariableValues += -1;
@@ -280,15 +280,15 @@ public class hkbBehaviorGraphData
         return numwordMaxVariableValues;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed24> getWordMaxVariableValues() {
+    public Iterable<org.tes.hkx.lib.ext.innerEventInfo> getWordMaxVariableValues() {
         return wordMaxVariableValues;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed24 getWordMaxVariableValuesAt(int index) {
+    public org.tes.hkx.lib.ext.innerEventInfo getWordMaxVariableValuesAt(int index) {
         return wordMaxVariableValues.get(index);
     }
 
-    public boolean addToWordMaxVariableValues(org.tes.hkx.lib.ext.Unnamed24 newWordMaxVariableValues) {
+    public boolean addToWordMaxVariableValues(org.tes.hkx.lib.ext.innerEventInfo newWordMaxVariableValues) {
         if (wordMaxVariableValues.add(newWordMaxVariableValues)) {
             numwordMaxVariableValues += 1;
             return true;
@@ -297,7 +297,7 @@ public class hkbBehaviorGraphData
     }
 
     @ObjectLink
-    public boolean removeFromWordMaxVariableValues(org.tes.hkx.lib.ext.Unnamed24 wordMaxVariableValuesToRemove) {
+    public boolean removeFromWordMaxVariableValues(org.tes.hkx.lib.ext.innerEventInfo wordMaxVariableValuesToRemove) {
         if (wordMaxVariableValues.remove(wordMaxVariableValuesToRemove)) {
             numwordMaxVariableValues += -1;
             return true;
@@ -305,8 +305,8 @@ public class hkbBehaviorGraphData
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed24 removeFromWordMaxVariableValuesAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed24 toRemove;
+    public org.tes.hkx.lib.ext.innerEventInfo removeFromWordMaxVariableValuesAt(int index) {
+        org.tes.hkx.lib.ext.innerEventInfo toRemove;
         toRemove = wordMaxVariableValues.remove(index);
         if (!(null == toRemove)) {
             numwordMaxVariableValues += -1;
@@ -340,19 +340,19 @@ public class hkbBehaviorGraphData
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed20 child: getVariableInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getVariableInfos()) {
             child.accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed22 child: getCharacterPropertyInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getCharacterPropertyInfos()) {
             child.accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getEventInfos()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getEventInfos()) {
             child.accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getWordMinVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getWordMinVariableValues()) {
             child.accept(visitor);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getWordMaxVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getWordMaxVariableValues()) {
             child.accept(visitor);
         }
         if (!(null == getVariableInitialValues())) {
@@ -367,19 +367,19 @@ public class hkbBehaviorGraphData
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed20 child: getVariableInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getVariableInfos()) {
             child.accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed22 child: getCharacterPropertyInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getCharacterPropertyInfos()) {
             child.accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getEventInfos()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getEventInfos()) {
             child.accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getWordMinVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getWordMinVariableValues()) {
             child.accept(visitor, this);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getWordMaxVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getWordMaxVariableValues()) {
             child.accept(visitor, this);
         }
         if (!(null == getVariableInitialValues())) {
@@ -394,19 +394,19 @@ public class hkbBehaviorGraphData
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed20 child: getVariableInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getVariableInfos()) {
             theseObjects.add(child);
         }
-        for (org.tes.hkx.lib.ext.Unnamed22 child: getCharacterPropertyInfos()) {
+        for (org.tes.hkx.lib.ext.innerVariableInfo child: getCharacterPropertyInfos()) {
             theseObjects.add(child);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getEventInfos()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getEventInfos()) {
             theseObjects.add(child);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getWordMinVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getWordMinVariableValues()) {
             theseObjects.add(child);
         }
-        for (org.tes.hkx.lib.ext.Unnamed24 child: getWordMaxVariableValues()) {
+        for (org.tes.hkx.lib.ext.innerEventInfo child: getWordMaxVariableValues()) {
             theseObjects.add(child);
         }
         if (!(null == getVariableInitialValues())) {
@@ -420,19 +420,19 @@ public class hkbBehaviorGraphData
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed20)&&removeFromVariableInfos(((org.tes.hkx.lib.ext.Unnamed20) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerVariableInfo)&&removeFromVariableInfos(((org.tes.hkx.lib.ext.innerVariableInfo) toRemove))) {
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed22)&&removeFromCharacterPropertyInfos(((org.tes.hkx.lib.ext.Unnamed22) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerVariableInfo)&&removeFromCharacterPropertyInfos(((org.tes.hkx.lib.ext.innerVariableInfo) toRemove))) {
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed24)&&removeFromEventInfos(((org.tes.hkx.lib.ext.Unnamed24) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerEventInfo)&&removeFromEventInfos(((org.tes.hkx.lib.ext.innerEventInfo) toRemove))) {
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed24)&&removeFromWordMinVariableValues(((org.tes.hkx.lib.ext.Unnamed24) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerEventInfo)&&removeFromWordMinVariableValues(((org.tes.hkx.lib.ext.innerEventInfo) toRemove))) {
             return true;
         }
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed24)&&removeFromWordMaxVariableValues(((org.tes.hkx.lib.ext.Unnamed24) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerEventInfo)&&removeFromWordMaxVariableValues(((org.tes.hkx.lib.ext.innerEventInfo) toRemove))) {
             return true;
         }
         if ((getVariableInitialValues()!= null)&&getVariableInitialValues().equals(toRemove)) {

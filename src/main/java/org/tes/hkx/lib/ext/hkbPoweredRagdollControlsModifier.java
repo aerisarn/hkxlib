@@ -38,9 +38,9 @@ public class hkbPoweredRagdollControlsModifier
     private String userData;
     private String childname;
     private String enable;
-    private Unnamed36 controlData;
+    private innerRagdollControlData controlData;
     private hkbBoneIndexArray bones;
-    private Unnamed37 worldFromModelModeData;
+    private innerWorldFromModelModeData worldFromModelModeData;
     private hkbBoneWeightArray boneWeights;
 
     public hkbPoweredRagdollControlsModifier() {
@@ -97,11 +97,11 @@ public class hkbPoweredRagdollControlsModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"controlData\"]/hkobject")
-    public Unnamed36 getControlData() {
+    public innerRagdollControlData getControlData() {
         return controlData;
     }
 
-    public void setControlData(Unnamed36 newControlData) {
+    public void setControlData(innerRagdollControlData newControlData) {
         this.controlData = newControlData;
     }
 
@@ -117,11 +117,11 @@ public class hkbPoweredRagdollControlsModifier
     }
 
     @XmlElement(name = "hkparam[@name=\"worldFromModelModeData\"]/hkobject")
-    public Unnamed37 getWorldFromModelModeData() {
+    public innerWorldFromModelModeData getWorldFromModelModeData() {
         return worldFromModelModeData;
     }
 
-    public void setWorldFromModelModeData(Unnamed37 newWorldFromModelModeData) {
+    public void setWorldFromModelModeData(innerWorldFromModelModeData newWorldFromModelModeData) {
         this.worldFromModelModeData = newWorldFromModelModeData;
     }
 

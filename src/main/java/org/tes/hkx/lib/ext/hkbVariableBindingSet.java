@@ -28,13 +28,13 @@ public class hkbVariableBindingSet
 {
 
     @XmlElement(name = "hkparam[@name=\"bindings\"]/hkobject", required = true, nillable = true)
-    private ArrayList<org.tes.hkx.lib.ext.Unnamed52> bindings;
+    private ArrayList<org.tes.hkx.lib.ext.innerVariableBinding> bindings;
     @XmlPath("hkparam[@name=\"bindings\"]/@numelements")
     private Integer numbindings;
     private String indexOfBindingToEnable;
 
     public hkbVariableBindingSet() {
-        bindings = new ArrayList<org.tes.hkx.lib.ext.Unnamed52>();
+        bindings = new ArrayList<org.tes.hkx.lib.ext.innerVariableBinding>();
         numbindings = 0;
         setIndexOfBindingToEnable("-1");
         setClazz("hkbVariableBindingSet");
@@ -44,15 +44,15 @@ public class hkbVariableBindingSet
         return numbindings;
     }
 
-    public Iterable<org.tes.hkx.lib.ext.Unnamed52> getBindings() {
+    public Iterable<org.tes.hkx.lib.ext.innerVariableBinding> getBindings() {
         return bindings;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed52 getBindingsAt(int index) {
+    public org.tes.hkx.lib.ext.innerVariableBinding getBindingsAt(int index) {
         return bindings.get(index);
     }
 
-    public boolean addToBindings(org.tes.hkx.lib.ext.Unnamed52 newBindings) {
+    public boolean addToBindings(org.tes.hkx.lib.ext.innerVariableBinding newBindings) {
         if (bindings.add(newBindings)) {
             numbindings += 1;
             return true;
@@ -61,7 +61,7 @@ public class hkbVariableBindingSet
     }
 
     @ObjectLink
-    public boolean removeFromBindings(org.tes.hkx.lib.ext.Unnamed52 bindingsToRemove) {
+    public boolean removeFromBindings(org.tes.hkx.lib.ext.innerVariableBinding bindingsToRemove) {
         if (bindings.remove(bindingsToRemove)) {
             numbindings += -1;
             return true;
@@ -69,8 +69,8 @@ public class hkbVariableBindingSet
         return false;
     }
 
-    public org.tes.hkx.lib.ext.Unnamed52 removeFromBindingsAt(int index) {
-        org.tes.hkx.lib.ext.Unnamed52 toRemove;
+    public org.tes.hkx.lib.ext.innerVariableBinding removeFromBindingsAt(int index) {
+        org.tes.hkx.lib.ext.innerVariableBinding toRemove;
         toRemove = bindings.remove(index);
         if (!(null == toRemove)) {
             numbindings += -1;
@@ -92,7 +92,7 @@ public class hkbVariableBindingSet
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {
         visitor.visit(this);
-        for (org.tes.hkx.lib.ext.Unnamed52 child: getBindings()) {
+        for (org.tes.hkx.lib.ext.innerVariableBinding child: getBindings()) {
             child.accept(visitor);
         }
         return visitor.getResults();
@@ -101,7 +101,7 @@ public class hkbVariableBindingSet
     @Override
     public<T >T accept(IHkParentVisitor<T> visitor, IHkVisitable parent) {
         visitor.visit(this, parent);
-        for (org.tes.hkx.lib.ext.Unnamed52 child: getBindings()) {
+        for (org.tes.hkx.lib.ext.innerVariableBinding child: getBindings()) {
             child.accept(visitor, this);
         }
         return visitor.getResults();
@@ -110,7 +110,7 @@ public class hkbVariableBindingSet
     @Override
     public Collection<IHkVisitable> objects() {
         Collection<IHkVisitable> theseObjects = new ArrayList<IHkVisitable>();
-        for (org.tes.hkx.lib.ext.Unnamed52 child: getBindings()) {
+        for (org.tes.hkx.lib.ext.innerVariableBinding child: getBindings()) {
             theseObjects.add(child);
         }
         return theseObjects;
@@ -118,7 +118,7 @@ public class hkbVariableBindingSet
 
     @Override
     public boolean remove(Object toRemove) {
-        if ((toRemove instanceof org.tes.hkx.lib.ext.Unnamed52)&&removeFromBindings(((org.tes.hkx.lib.ext.Unnamed52) toRemove))) {
+        if ((toRemove instanceof org.tes.hkx.lib.ext.innerVariableBinding)&&removeFromBindings(((org.tes.hkx.lib.ext.innerVariableBinding) toRemove))) {
             return true;
         }
         return false;
