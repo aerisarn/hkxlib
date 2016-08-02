@@ -1,5 +1,6 @@
 package org.tes.hkx.model.files;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkobjectType;
@@ -27,7 +28,7 @@ public class HkProjectFile extends HkFile {
 		data = getTypedObject(variant.getKey());
 	}
 
-	public HkProjectFile(HkpackfileType source) throws Exception {
+	public HkProjectFile(JAXBElement<HkpackfileType> source) throws Exception {
 		super(source);
 		setup();
 	}
@@ -44,7 +45,6 @@ public class HkProjectFile extends HkFile {
 		data = createObject(hkbProjectData.class);
 		hkbProjectStringData stringData = createObject(hkbProjectStringData.class);
 		data.setStringData(stringData);
-		data = new hkbProjectData();
 		variant.setVariant(data);
 		getRoot().addToNamedVariants(variant);
 		startingKey = projectStartingKey;

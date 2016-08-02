@@ -3,7 +3,9 @@ package org.tes.hkx.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
 
 import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.HkpackfileType;
@@ -14,6 +16,7 @@ import org.tes.hkx.model.visitors.RenumberingVisitor;
 
 public class HkFile {
 
+	protected JAXBElement<HkpackfileType> wrapper = null;
 	protected HkpackfileType hkx = null;
 	
 	hkRootLevelContainer root;
@@ -28,9 +31,11 @@ public class HkFile {
 	
 	public HkFile() {
 		hkx = new HkpackfileType();
+		wrapper = new JAXBElement<HkpackfileType>(new QName("hkpackfile"), HkpackfileType.class, hkx);
 		hkx.setClassversion((byte) 8);
 		hkx.setContentsversion("hk_2010.2.0-r1");
 		HksectionType section = new HksectionType();
+		section.setName("__data__");
 		root = new hkRootLevelContainer();
 		hkx.setHksection(section);
 		section.getHkobject().add(root);
@@ -38,9 +43,10 @@ public class HkFile {
 		hkx.setToplevelobject(root.getKey());
 	}
 	
-	public HkFile(HkpackfileType hkx) {
-		this.hkx = hkx;
-		root = getTypedObject(hkx.getToplevelobject());
+	public HkFile(JAXBElement<HkpackfileType> hkx) {
+		this.wrapper = hkx;
+		this.hkx = hkx.getValue();
+		root = getTypedObject(this.hkx.getToplevelobject());
 	}
 
 	public void setHkClassVersion(Byte version) {
@@ -101,5 +107,8 @@ public class HkFile {
 	public boolean deleteObject(HkobjectType object) {
 		return hkx.getHksection().getHkobject().remove(object);
 	}
-
+	
+	public JAXBElement<HkpackfileType> getWrapper() {
+		return wrapper;
+	}
 }

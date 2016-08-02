@@ -23,8 +23,6 @@ public class HkFilesFactory {
 	JAXBContext context = null;
 	Marshaller marshaller = null;
 	Unmarshaller unmarshaller = null;
-
-	JAXBElement<HkpackfileType> wrapper = null;
 	
 	public HkFilesFactory() throws Exception {
 		Reflections reflections = new Reflections("org.tes.hkx.lib.ext", new SubTypesScanner(false));
@@ -37,7 +35,7 @@ public class HkFilesFactory {
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 	}
 	
-	private HkpackfileType load(File f) throws Exception{
+	private JAXBElement<HkpackfileType> load(File f) throws Exception{
 		Object unmarshalledFile = unmarshaller.unmarshal(f);
 		JAXBElement<HkpackfileType> wrapper = (JAXBElement<HkpackfileType>) unmarshalledFile;
 		HkpackfileType hkx = wrapper.getValue();
@@ -53,7 +51,7 @@ public class HkFilesFactory {
 			}
 		if (root == null)
 			throw new Exception("Malformed HKX file: Unable to find hkRootLevelContainer");
-		return hkx;
+		return wrapper;
 	}
 	
 	public HkFile loadFile(File f) throws Exception {
@@ -61,11 +59,16 @@ public class HkFilesFactory {
 	}
 	
 	public <T extends HkFile> T loadTypedFile(File f, Class<T> cl) throws Exception {
-		return cl.getConstructor(HkpackfileType.class).newInstance(load(f));
+		return cl.getConstructor(JAXBElement.class).newInstance(load(f));
 	}
 
 	public void save(HkFile hf, File f) throws JAXBException, IOException {
 		hf.resetKeys();
-		marshaller.marshal(wrapper, new FileWriter(f));
+		marshaller.marshal(hf.getWrapper(), new FileWriter(f));
+	}
+	
+	public void out(HkFile hf) throws JAXBException {
+		hf.resetKeys();
+		marshaller.marshal(hf.getWrapper(), System.out);
 	}
 }

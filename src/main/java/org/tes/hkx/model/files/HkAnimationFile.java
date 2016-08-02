@@ -1,5 +1,6 @@
 package org.tes.hkx.model.files;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkpackfileType;
@@ -26,7 +27,7 @@ public class HkAnimationFile extends HkFile {
 
 	}
 
-	public HkAnimationFile(HkpackfileType source) throws Exception {
+	public HkAnimationFile(JAXBElement<HkpackfileType> source) throws Exception {
 		super(source);
 		setup();
 	}

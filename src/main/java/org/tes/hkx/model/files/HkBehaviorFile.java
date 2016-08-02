@@ -1,5 +1,6 @@
 package org.tes.hkx.model.files;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 
 import org.tes.hkx.lib.HkobjectType;
@@ -27,7 +28,7 @@ public class HkBehaviorFile extends HkFile {
 		graph = getTypedObject(variant.getKey());
 	}
 
-	public HkBehaviorFile(HkpackfileType source) throws Exception {
+	public HkBehaviorFile(JAXBElement<HkpackfileType> source) throws Exception {
 		super(source);
 		setup();
 	}
