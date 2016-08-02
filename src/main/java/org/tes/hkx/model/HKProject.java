@@ -35,30 +35,34 @@ public class HKProject {
 		projectFile = new HkProjectFile(projectName);
 	}
 
+	private String getPathFromHKX(String path) {
+		return path.replace(".hkx", ".xml").replace("\\", File.separator);
+	}
+	
 	public HKProject(File projectFileSource) throws Exception {
 		HkFilesFactory filesFactory = new HkFilesFactory();
 		projectFile = filesFactory.loadTypedFile(projectFileSource, HkProjectFile.class);
 
 		for (String characterPath : projectFile.getStringData().getCharacterFilenames()) {
 			characterFiles.add(filesFactory.loadTypedFile(
-					new File(projectFileSource.getParent(), characterPath.toLowerCase().replace(".hkx", ".xml")),
+					new File(projectFileSource.getParent(), getPathFromHKX(characterPath)),
 					HkCharacterFile.class));
 		}
 		for (HkCharacterFile characterFile : characterFiles) {
 			rigRagdollFiles.put(characterFile,
 					filesFactory.loadTypedFile(
 							new File(projectFileSource.getParent(),
-									characterFile.getStringData().getRigName().toLowerCase().replace(".hkx", ".xml")),
+									getPathFromHKX(characterFile.getStringData().getRigName())),
 							HkSkeletonFile.class));
 			behaviorFiles.put(characterFile,
 					filesFactory.loadTypedFile(
 							new File(projectFileSource.getParent(),
-									characterFile.getStringData().getBehaviorFilename().toLowerCase().replace(".hkx", ".xml")),
+									getPathFromHKX(characterFile.getStringData().getBehaviorFilename())),
 							HkBehaviorFile.class));
 			for (String animationFile : characterFile.getStringData().getAnimationNames()) {
 				animationFiles.put(characterFile,
 						filesFactory.loadTypedFile(
-								new File(projectFileSource.getParent(), animationFile.toLowerCase().replace(".hkx", ".xml")),
+								new File(projectFileSource.getParent(), getPathFromHKX(animationFile)),
 								HkAnimationFile.class));
 			}
 		}
