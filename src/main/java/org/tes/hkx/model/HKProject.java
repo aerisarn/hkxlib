@@ -36,7 +36,7 @@ public class HKProject {
 	}
 
 	private String getPathFromHKX(String path) {
-		return path.replace(".hkx", ".xml").replace("\\", File.separator);
+		return path.replace(".hkx", ".xml").replace(".HKX", ".xml").replace("\\", File.separator);
 	}
 	
 	public HKProject(File projectFileSource) throws Exception {
