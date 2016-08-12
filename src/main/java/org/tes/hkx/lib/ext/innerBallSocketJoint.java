@@ -8,10 +8,11 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "solvingMethod", "bodiesToNotify", "velocityStabilizationFactor", "maxImpulse",
 		"inertiaStabilizationFactor" })
-public class innerBallSocketJoint implements IHkVisitable, IHkInnerObject {
+public class innerBallSocketJoint extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String solvingMethod;

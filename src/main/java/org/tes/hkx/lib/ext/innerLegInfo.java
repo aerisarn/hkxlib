@@ -8,11 +8,12 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "kneeAxisLS", "footEndLS", "footPlantedAnkleHeightMS", "footRaisedAnkleHeightMS",
 		"maxAnkleHeightMS", "minAnkleHeightMS", "maxKneeAngleDegrees", "minKneeAngleDegrees", "maxAnkleAngleDegrees",
 		"hipIndex", "kneeIndex", "ankleIndex" })
-public class innerLegInfo implements IHkVisitable, IHkInnerObject {
+public class innerLegInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String kneeAxisLS;
 	private String footEndLS;

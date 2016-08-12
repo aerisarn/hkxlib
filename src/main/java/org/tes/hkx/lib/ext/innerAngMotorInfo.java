@@ -14,10 +14,11 @@ import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
 import org.tes.hkx.model.ObjectLink;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "isEnabled", "motorAxis", "initializedOffset", "previousTargetAngleOffset",
 		"correspondingAngLimitSolverResultOffset", "targetAngle", "motor" })
-public class innerAngMotorInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerAngMotorInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String isEnabled;

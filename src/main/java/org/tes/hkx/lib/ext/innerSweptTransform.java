@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "centerOfMass0", "centerOfMass1", "rotation0", "rotation1", "centerOfMassLocal" })
-public class innerSweptTransform implements IHkVisitable, IHkInnerObject {
+public class innerSweptTransform extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String centerOfMass0;
 	private String centerOfMass1;

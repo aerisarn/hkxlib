@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "x", "y", "z" })
-public class innerVertexRotation implements IHkVisitable, IHkInnerObject {
+public class innerVertexRotation extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String x;
 	private String y;

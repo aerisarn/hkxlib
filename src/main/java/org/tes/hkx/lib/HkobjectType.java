@@ -14,10 +14,12 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorNode;
 import org.tes.hkx.model.IHkParentVisitor;
+import org.tes.hkx.model.IHkParented;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
 
@@ -49,7 +51,7 @@ import org.tes.hkx.model.IHkVisitor;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "hkobjectType", propOrder = { "hkparam" })
 @XmlDiscriminatorNode("@signature")
-public class HkobjectType implements IHkVisitable {
+public class HkobjectType implements IHkVisitable, IHkParented {
 
 	protected List<HkparamType> hkparam;
 	@XmlID
@@ -59,6 +61,20 @@ public class HkobjectType implements IHkVisitable {
 	protected String clazz;
 	@XmlAttribute(name = "signature")
 	protected String signature;
+	
+	@XmlTransient
+	IHkVisitable parent;
+	
+	@Override
+	public IHkVisitable getParent() {
+		return parent;
+	}
+	
+	@Override
+	public void setParent(IHkVisitable parent) {
+		this.parent = parent;
+	}
+	
 
 	/**
 	 * Gets the value of the hkparam property.

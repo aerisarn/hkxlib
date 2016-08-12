@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "flags" })
-public class innerEventInfo implements IHkVisitable, IHkInnerObject {
+public class innerEventInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String flags;
 

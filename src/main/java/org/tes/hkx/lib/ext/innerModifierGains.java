@@ -8,11 +8,12 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "onOffGain", "groundAscendingGain", "groundDescendingGain", "footPlantedGain", "footRaisedGain",
 		"footUnlockGain", "worldFromModelFeedbackGain", "errorUpDownBias", "alignWorldFromModelGain",
 		"hipOrientationGain", "maxKneeAngleDifference", "ankleOrientationGain" })
-public class innerModifierGains implements IHkVisitable, IHkInnerObject {
+public class innerModifierGains extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String onOffGain;
 	private String groundAscendingGain;

@@ -13,9 +13,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "localTime", "event", "relativeToEndOfClip", "acyclic", "isAnnotation" })
-public class innerTrigger implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerTrigger extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String localTime;
 	private innerEvent event;

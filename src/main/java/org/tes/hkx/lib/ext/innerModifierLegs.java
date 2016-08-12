@@ -13,12 +13,13 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "originalAnkleTransformMS", "kneeAxisLS", "footEndLS", "ungroundedEvent",
 		"footPlantedAnkleHeightMS", "footRaisedAnkleHeightMS", "maxAnkleHeightMS", "minAnkleHeightMS",
 		"maxKneeAngleDegrees", "minKneeAngleDegrees", "verticalError", "maxAnkleAngleDegrees", "hipIndex", "kneeIndex",
 		"ankleIndex", "hitSomething", "isPlantedMS", "isOriginalAnkleTransformMSSet" })
-public class innerModifierLegs implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerModifierLegs extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String originalAnkleTransformMS;
 	private String kneeAxisLS;

@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "capsuleHeight", "capsuleRadius", "collisionFilterInfo", "characterControllerCinfo" })
-public class innerCharacterControllerInfo implements IHkVisitable, IHkInnerObject {
+public class innerCharacterControllerInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String capsuleHeight;
 	private String capsuleRadius;

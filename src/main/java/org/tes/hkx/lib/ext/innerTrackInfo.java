@@ -12,9 +12,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "trackName", "annotations" })
-public class innerTrackInfo implements IHkVisitable, IHkInnerObject {
+public class innerTrackInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String trackName;
 	@XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)

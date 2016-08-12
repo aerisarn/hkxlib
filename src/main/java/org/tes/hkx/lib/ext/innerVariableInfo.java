@@ -13,9 +13,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "role", "type" })
-public class innerVariableInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerVariableInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private innerVariableRole role;
 	private String type;

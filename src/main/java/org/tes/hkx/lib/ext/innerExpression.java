@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "expression", "assignmentVariableIndex", "assignmentEventIndex", "eventMode" })
-public class innerExpression implements IHkVisitable, IHkInnerObject {
+public class innerExpression extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String expression;
 	private String assignmentVariableIndex;

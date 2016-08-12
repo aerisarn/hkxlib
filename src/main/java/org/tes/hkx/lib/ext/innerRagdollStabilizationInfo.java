@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "enabled", "maxAngle", "padding" })
-public class innerRagdollStabilizationInfo implements IHkVisitable, IHkInnerObject {
+public class innerRagdollStabilizationInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String enabled;

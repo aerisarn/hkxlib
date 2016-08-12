@@ -13,9 +13,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "upperBound", "event", "eventMode" })
-public class innerEventRangeData implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerEventRangeData extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String upperBound;
 	private innerEvent event;

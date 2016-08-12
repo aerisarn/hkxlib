@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "index", "fwdAxisLS", "limitAngleDegrees", "onGain", "offGain", "enabled" })
-public class innerLookModifierBonesInfo implements IHkVisitable, IHkInnerObject {
+public class innerLookModifierBonesInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String index;
 	private String fwdAxisLS;

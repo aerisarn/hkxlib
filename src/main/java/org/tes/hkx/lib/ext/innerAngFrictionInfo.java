@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "isEnabled", "firstFrictionAxis", "numFrictionAxes", "maxFrictionTorque" })
-public class innerAngFrictionInfo implements IHkVisitable, IHkInnerObject {
+public class innerAngFrictionInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String isEnabled;

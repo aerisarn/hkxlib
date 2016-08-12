@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "isEnabled", "twistAxis", "refAxis", "minAngle", "maxAngle", "angularLimitsTauFactor" })
-public class innerTwistLimit implements IHkVisitable, IHkInnerObject {
+public class innerTwistLimit extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String isEnabled;

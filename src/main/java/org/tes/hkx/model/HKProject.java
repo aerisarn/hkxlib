@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.tes.hkx.lib.HkobjectType;
+import org.tes.hkx.lib.ext.hkbBehaviorReferenceGenerator;
 import org.tes.hkx.model.files.HkAnimationFile;
 import org.tes.hkx.model.files.HkBehaviorFile;
 import org.tes.hkx.model.files.HkCharacterFile;
@@ -21,12 +25,20 @@ import com.google.common.collect.Multimap;
 public class HKProject {
 
 	private HkProjectFile projectFile;
+	private File projectFileSource;
+	private HkFilesFactory filesFactory = new HkFilesFactory();
 	private List<HkCharacterFile> characterFiles = new ArrayList<>();
 	// ragdoll is embedded into the skeleton for Skyrim
+	
+	//Files
 	private Map<HkCharacterFile, HkSkeletonFile> rigRagdollFiles = new HashMap<>();
-	private Map<HkCharacterFile, HkBehaviorFile> behaviorFiles = new HashMap<>();
+	private Multimap<HkCharacterFile, HkBehaviorFile> behaviorFiles = ArrayListMultimap.create();
+	private Multimap<String, HkBehaviorFile> behaviorFileNames = ArrayListMultimap.create();
 	private Multimap<HkCharacterFile, HkAnimationFile> animationFiles = ArrayListMultimap.create();
 
+	//Interface
+	private Set<HkBehaviorGraph> behaviors = new HashSet();
+	
 	public HKProject() throws Exception {
 		projectFile = new HkProjectFile();
 	}
@@ -38,36 +50,52 @@ public class HKProject {
 	private String getPathFromHKX(String path) {
 		return path.replace(".hkx", ".xml").replace(".HKX", ".xml").replace("\\", File.separator);
 	}
-	
+
+	private void scanForAdditionalBehaviors(HkBehaviorFile behaviorFile, HkCharacterFile characterFile)
+			throws Exception {
+		for (HkobjectType bobj : behaviorFile.getObjects()) {
+			if (bobj instanceof hkbBehaviorReferenceGenerator) {
+				hkbBehaviorReferenceGenerator p = (hkbBehaviorReferenceGenerator) bobj;
+				if (!behaviorFileNames.keys().contains(p.getBehaviorName())) {
+					HkBehaviorFile refBF = filesFactory.loadTypedFile(
+							new File(projectFileSource.getParent(), getPathFromHKX(p.getBehaviorName())),
+							HkBehaviorFile.class);
+					behaviors.add(new HkBehaviorGraph(refBF));
+					behaviorFiles.put(characterFile, refBF);
+					behaviorFileNames.put(p.getBehaviorName(), refBF);
+					scanForAdditionalBehaviors(refBF, characterFile);
+				}
+			}
+		}
+	}
+
 	public HKProject(File projectFileSource) throws Exception {
-		HkFilesFactory filesFactory = new HkFilesFactory();
+		this.projectFileSource = projectFileSource;
 		projectFile = filesFactory.loadTypedFile(projectFileSource, HkProjectFile.class);
 
 		for (String characterPath : projectFile.getStringData().getCharacterFilenames()) {
 			characterFiles.add(filesFactory.loadTypedFile(
-					new File(projectFileSource.getParent(), getPathFromHKX(characterPath)),
-					HkCharacterFile.class));
+					new File(projectFileSource.getParent(), getPathFromHKX(characterPath)), HkCharacterFile.class));
 		}
 		for (HkCharacterFile characterFile : characterFiles) {
-			rigRagdollFiles.put(characterFile,
-					filesFactory.loadTypedFile(
-							new File(projectFileSource.getParent(),
-									getPathFromHKX(characterFile.getStringData().getRigName())),
-							HkSkeletonFile.class));
-			behaviorFiles.put(characterFile,
-					filesFactory.loadTypedFile(
-							new File(projectFileSource.getParent(),
-									getPathFromHKX(characterFile.getStringData().getBehaviorFilename())),
-							HkBehaviorFile.class));
+			rigRagdollFiles
+					.put(characterFile,
+							filesFactory.loadTypedFile(
+									new File(projectFileSource.getParent(),
+											getPathFromHKX(characterFile.getStringData().getRigName())),
+									HkSkeletonFile.class));
+			HkBehaviorFile bf = filesFactory.loadTypedFile(new File(projectFileSource.getParent(),
+					getPathFromHKX(characterFile.getStringData().getBehaviorFilename())), HkBehaviorFile.class);
+			behaviorFiles.put(characterFile, bf);
+			behaviors.add(new HkBehaviorGraph(bf));
+			scanForAdditionalBehaviors(bf, characterFile);
 			for (String animationFile : characterFile.getStringData().getAnimationNames()) {
-				animationFiles.put(characterFile,
-						filesFactory.loadTypedFile(
-								new File(projectFileSource.getParent(), getPathFromHKX(animationFile)),
-								HkAnimationFile.class));
+				animationFiles.put(characterFile, filesFactory.loadTypedFile(
+						new File(projectFileSource.getParent(), getPathFromHKX(animationFile)), HkAnimationFile.class));
 			}
 		}
 	}
-	
+
 	public HkProjectFile getProjectFile() {
 		return projectFile;
 	}
@@ -81,6 +109,10 @@ public class HKProject {
 	}
 
 	public HkBehaviorFile getBehavior(HkCharacterFile charFile) {
+		return behaviorFiles.get(charFile).iterator().next();
+	}
+
+	public Collection<HkBehaviorFile> getBehaviors(HkCharacterFile charFile) {
 		return behaviorFiles.get(charFile);
 	}
 
@@ -99,11 +131,11 @@ public class HKProject {
 	}
 
 	public void setBehavior(HkCharacterFile charFile, String name) {
-		charFile.getStringData().setBehaviorFilename("behaviors\\"+name+".hkx");
+		charFile.getStringData().setBehaviorFilename("behaviors\\" + name + ".hkx");
 	}
 
 	public void setBehavior(HkCharacterFile charFile, File file) {
-		//TODO
+		// TODO
 	}
 
 }

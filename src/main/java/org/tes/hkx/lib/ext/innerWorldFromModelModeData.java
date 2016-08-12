@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "poseMatchingBone0", "poseMatchingBone1", "poseMatchingBone2", "mode" })
-public class innerWorldFromModelModeData implements IHkVisitable, IHkInnerObject {
+public class innerWorldFromModelModeData extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String poseMatchingBone0;
 	private String poseMatchingBone1;

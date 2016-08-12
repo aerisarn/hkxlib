@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "freeRotationAxis" })
-public class inner2dAng implements IHkVisitable, IHkInnerObject {
+public class inner2dAng extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String freeRotationAxis;

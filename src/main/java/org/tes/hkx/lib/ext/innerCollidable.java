@@ -15,9 +15,10 @@ import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
 import org.tes.hkx.model.ObjectLink;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "shape", "shapeKey", "forceCollideOntoPpu", "broadPhaseHandle", "allowedPenetrationDepth" })
-public class innerCollidable implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerCollidable extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private hkpCapsuleShape shape;
 	private String shapeKey;

@@ -2,20 +2,13 @@ package org.tes.hkx.model;
 
 public class HkVariable {
 
-	private Integer id;
-	
 	private String name;
-
 	private String type;
-
 	private String value;
-
 	private String role;
-
 	private String flags;
 
-	public HkVariable(Integer id, String name, String type, String value, String role, String flags) {
-		this.id = id;
+	public HkVariable(String name, String type, String value, String role, String flags) {
 		this.name = name;
 		this.type = type;
 		this.value = value;
@@ -23,14 +16,6 @@ public class HkVariable {
 		this.role = role;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
 	public String getName() {
 		return name;
 	}
@@ -73,6 +58,7 @@ public class HkVariable {
 	
 	@Override
 	public String toString() {
-		return getId()+": "+getName()+"("+getType()+") = "+getValue()+" role: "+getRole()+" flags: "+getFlags();
+		return getName()+"("+getType()+") = "+getValue()+" role: "+getRole()+" flags: "+getFlags();
 	}
+
 }

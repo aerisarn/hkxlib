@@ -12,9 +12,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "gains" })
-public class innerFootIkControlData implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerFootIkControlData extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private innerFootIkControlGains gains;
 

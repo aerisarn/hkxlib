@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "memberPath", "variableIndex", "bitIndex", "bindingType" })
-public class innerVariableBinding implements IHkVisitable, IHkInnerObject {
+public class innerVariableBinding extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String memberPath;
 	private String variableIndex;

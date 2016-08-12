@@ -18,6 +18,8 @@ import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.HkpackfileType;
 import org.tes.hkx.lib.ext.hkRootLevelContainer;
 import org.tes.hkx.model.HkFile;
+import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.visitors.ParentLinkVisitor;
 
 public class HkFilesFactory {
 	JAXBContext context = null;
@@ -49,6 +51,7 @@ public class HkFilesFactory {
 				// Fix for double signature
 				o.setSignature(null);
 			}
+		root.accept(new ParentLinkVisitor(),null);
 		if (root == null)
 			throw new Exception("Malformed HKX file: Unable to find hkRootLevelContainer");
 		return wrapper;

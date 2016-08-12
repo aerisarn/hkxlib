@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "responseType", "rollingFrictionMultiplier", "friction", "restitution" })
-public class innerMaterialInfo implements IHkVisitable, IHkInnerObject {
+public class innerMaterialInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String responseType;
 	private String rollingFrictionMultiplier;

@@ -14,10 +14,11 @@ import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
 import org.tes.hkx.model.ObjectLink;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "isEnabled", "initializedOffset", "previousTargetAnglesOffset", "target_bRca",
 		"motors" })
-public class innerRagdollMotorInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerRagdollMotorInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String isEnabled;

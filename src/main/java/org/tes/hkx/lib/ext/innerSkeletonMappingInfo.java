@@ -15,10 +15,11 @@ import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
 import org.tes.hkx.model.ObjectLink;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "skeletonA", "skeletonB", "simpleMappings", "chainMappings", "unmappedBones",
 		"extractedMotionMapping", "keepUnmappedLocal", "mappingType" })
-public class innerSkeletonMappingInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerSkeletonMappingInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private hkaSkeleton skeletonA;
 	private hkaSkeleton skeletonB;

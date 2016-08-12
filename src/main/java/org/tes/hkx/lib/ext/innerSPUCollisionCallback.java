@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "eventFilter", "userFilter" })
-public class innerSPUCollisionCallback implements IHkVisitable, IHkInnerObject {
+public class innerSPUCollisionCallback extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String eventFilter;
 	private String userFilter;

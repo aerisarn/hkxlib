@@ -7,11 +7,12 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = {
 
 })
-public class innerMultiThreadCheckInfo implements IHkVisitable, IHkInnerObject {
+public class innerMultiThreadCheckInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	public innerMultiThreadCheckInfo() {
 	}

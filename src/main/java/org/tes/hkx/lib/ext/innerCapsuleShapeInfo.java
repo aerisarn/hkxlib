@@ -14,9 +14,10 @@ import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
 import org.tes.hkx.model.ObjectLink;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "childShape" })
-public class innerCapsuleShapeInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerCapsuleShapeInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private hkpCapsuleShape childShape;
 

@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "objectQualityType", "collisionFilterInfo" })
-public class innerBroadPhaseHandler implements IHkVisitable, IHkInnerObject {
+public class innerBroadPhaseHandler extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String objectQualityType;

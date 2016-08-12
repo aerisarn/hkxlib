@@ -13,10 +13,11 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "transform", "sweptTransform", "deltaAngle", "objectRadius", "linearDamping", "angularDamping",
 		"timeFactor", "maxLinearVelocity", "maxAngularVelocity", "deactivationClass" })
-public class innerMotionStateInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerMotionStateInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String transform;
 	private innerSweptTransform sweptTransform;

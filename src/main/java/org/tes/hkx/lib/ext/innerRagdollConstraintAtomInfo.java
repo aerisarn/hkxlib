@@ -12,10 +12,11 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "transforms", "setupStabilization", "ragdollMotors", "angFriction", "twistLimit", "coneLimit",
 		"planesLimit", "ballSocket" })
-public class innerRagdollConstraintAtomInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerRagdollConstraintAtomInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private innerRagdollConstraintTransform transforms;
 	private innerRagdollStabilizationInfo setupStabilization;

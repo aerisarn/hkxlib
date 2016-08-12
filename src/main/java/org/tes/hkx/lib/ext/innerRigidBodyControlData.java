@@ -13,9 +13,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "keyFrameHierarchyControlData", "durationToBlend" })
-public class innerRigidBodyControlData implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerRigidBodyControlData extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private innerKeyFrameHierarchyControlData keyFrameHierarchyControlData;
 	private String durationToBlend;

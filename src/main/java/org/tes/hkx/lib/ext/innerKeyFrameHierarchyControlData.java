@@ -8,11 +8,12 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "hierarchyGain", "velocityDamping", "accelerationGain", "velocityGain", "positionGain",
 		"positionMaxLinearVelocity", "positionMaxAngularVelocity", "snapGain", "snapMaxLinearVelocity",
 		"snapMaxAngularVelocity", "snapMaxLinearDistance", "snapMaxAngularDistance" })
-public class innerKeyFrameHierarchyControlData implements IHkVisitable, IHkInnerObject {
+public class innerKeyFrameHierarchyControlData extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String hierarchyGain;
 	private String velocityDamping;

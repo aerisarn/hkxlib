@@ -13,9 +13,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "groundPosition", "ungroundedEvent", "verticalError", "hitSomething", "isPlantedMS" })
-public class innerFootIkControlLegsInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerFootIkControlLegsInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String groundPosition;
 	private innerEvent ungroundedEvent;

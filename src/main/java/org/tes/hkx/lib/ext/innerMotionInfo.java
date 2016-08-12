@@ -13,11 +13,12 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "type", "deactivationIntegrateCounter", "deactivationNumInactiveFrames", "motionState",
 		"inertiaAndMassInv", "linearVelocity", "angularVelocity", "deactivationRefPosition",
 		"deactivationRefOrientation", "savedMotion", "savedQualityTypeIndex", "gravityFactor" })
-public class innerMotionInfo implements IHkContainer, IHkVisitable, IHkInnerObject {
+public class innerMotionInfo extends innerVisitable implements IHkContainer, IHkVisitable, IHkInnerObject {
 
 	private String type;
 	private String deactivationIntegrateCounter;

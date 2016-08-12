@@ -8,9 +8,10 @@ import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
+import org.tes.hkx.model.innerVisitable;
 
 @XmlType(propOrder = { "enterEventId", "exitEventId", "enterTime", "exitTime" })
-public class innerTriggerInfo implements IHkVisitable, IHkInnerObject {
+public class innerTriggerInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String enterEventId;
 	private String exitEventId;
