@@ -89,10 +89,10 @@ public class HKProject {
 			behaviorFiles.put(characterFile, bf);
 			behaviors.add(new HkBehaviorGraph(bf));
 			scanForAdditionalBehaviors(bf, characterFile);
-			for (String animationFile : characterFile.getStringData().getAnimationNames()) {
-				animationFiles.put(characterFile, filesFactory.loadTypedFile(
-						new File(projectFileSource.getParent(), getPathFromHKX(animationFile)), HkAnimationFile.class));
-			}
+//			for (String animationFile : characterFile.getStringData().getAnimationNames()) {
+//				animationFiles.put(characterFile, filesFactory.loadTypedFile(
+//						new File(projectFileSource.getParent(), getPathFromHKX(animationFile)), HkAnimationFile.class));
+//			}
 		}
 	}
 

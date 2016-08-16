@@ -28,7 +28,6 @@ public class HkBehaviorGraph {
 				fsms.add(smNode);
 			}
 		}
-
 		data = root.getGraph().getData();
 	}
 

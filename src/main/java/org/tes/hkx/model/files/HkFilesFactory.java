@@ -25,7 +25,7 @@ public class HkFilesFactory {
 	JAXBContext context = null;
 	Marshaller marshaller = null;
 	Unmarshaller unmarshaller = null;
-	
+
 	public HkFilesFactory() throws Exception {
 		Reflections reflections = new Reflections("org.tes.hkx.lib.ext", new SubTypesScanner(false));
 		Set<Class<? extends Object>> allClasses = reflections.getSubTypesOf(Object.class);
@@ -36,31 +36,30 @@ public class HkFilesFactory {
 		marshaller = context.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 	}
-	
-	private JAXBElement<HkpackfileType> load(File f) throws Exception{
+
+	private JAXBElement<HkpackfileType> load(File f) throws Exception {
 		Object unmarshalledFile = unmarshaller.unmarshal(f);
 		JAXBElement<HkpackfileType> wrapper = (JAXBElement<HkpackfileType>) unmarshalledFile;
 		HkpackfileType hkx = wrapper.getValue();
 		String key = hkx.getToplevelobject();
 		hkRootLevelContainer root = null;
-		for (HkobjectType o : hkx.getHksection().getHkobject())
-			if (o.getKey()
-					.equals(key))
-			{
+		for (HkobjectType o : hkx.getHksection().getHkobject()) {
+			if (o.getKey().equals(key)) {
 				root = (hkRootLevelContainer) o;
-				// Fix for double signature
-				o.setSignature(null);
 			}
-		root.accept(new ParentLinkVisitor(),null);
+			// Fix for double signature
+			o.setSignature(null);
+		}
+		root.accept(new ParentLinkVisitor(), null);
 		if (root == null)
 			throw new Exception("Malformed HKX file: Unable to find hkRootLevelContainer");
 		return wrapper;
 	}
-	
+
 	public HkFile loadFile(File f) throws Exception {
 		return new HkFile(load(f));
 	}
-	
+
 	public <T extends HkFile> T loadTypedFile(File f, Class<T> cl) throws Exception {
 		return cl.getConstructor(JAXBElement.class).newInstance(load(f));
 	}
@@ -69,7 +68,7 @@ public class HkFilesFactory {
 		hf.resetKeys();
 		marshaller.marshal(hf.getWrapper(), new FileWriter(f));
 	}
-	
+
 	public void out(HkFile hf) throws JAXBException {
 		hf.resetKeys();
 		marshaller.marshal(hf.getWrapper(), System.out);

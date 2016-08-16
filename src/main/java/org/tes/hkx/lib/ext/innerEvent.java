@@ -55,7 +55,7 @@ public class innerEvent extends innerVisitable implements IHkVisitable, IHkInner
 
 	@Override
 	public String toString() {
-		return "Event";
+		return "Event "+getId()+":"+getPayload();
 	}
 
 }

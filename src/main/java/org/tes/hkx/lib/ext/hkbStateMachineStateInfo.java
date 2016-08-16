@@ -303,7 +303,7 @@ public class hkbStateMachineStateInfo
 
     @Override
     public String toString() {
-        return super.toString()+" ["+this.getName()+"]";
+        return super.toString()+" ["+this.getName()+": "+getStateId()+"]";
     }
 
 }

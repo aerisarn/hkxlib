@@ -26,6 +26,8 @@ public class HkBehaviorFile extends HkFile {
 					+ getRoot().getNamedVariants().iterator().next().getVariant().getClazz());
 		}
 		graph = getTypedObject(variant.getKey());
+		startingKey = Integer.parseInt(getRoot().getKey().substring(1, getRoot().getKey().length()));
+		System.out.println(variant.getKey()+": "+startingKey);
 	}
 
 	public HkBehaviorFile(JAXBElement<HkpackfileType> source) throws Exception {

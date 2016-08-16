@@ -222,6 +222,6 @@ public class innerStateTransitionInfo extends innerVisitable implements IHkConta
 
 	@Override
 	public String toString() {
-		return "StateTransition";
+		return "Transition on "+getEventId()+" to "+getToStateId()+" (nested "+getToNestedStateId()+")";
 	}
 }

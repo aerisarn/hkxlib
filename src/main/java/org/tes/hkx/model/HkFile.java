@@ -22,7 +22,7 @@ public class HkFile {
 	hkRootLevelContainer root;
 	ArrayList<HkobjectType> variants;
 	
-	protected static int startingKey = 1;
+	protected int startingKey = 1;
 
 	protected String getFirstKey() {
 		return "#"+String.format("%04d", startingKey);

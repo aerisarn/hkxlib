@@ -119,6 +119,6 @@ public class innerTrigger extends innerVisitable implements IHkContainer, IHkVis
 
 	@Override
 	public String toString() {
-		return "Trigger";
+		return "Trigger on "+event != null?event.getId():"null";
 	}
 }

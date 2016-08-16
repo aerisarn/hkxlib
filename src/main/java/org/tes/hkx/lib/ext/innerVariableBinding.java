@@ -79,6 +79,6 @@ public class innerVariableBinding extends innerVisitable implements IHkVisitable
 
 	@Override
 	public String toString() {
-		return "VariableBinding";
+		return "VariableBinding "+getVariableIndex() + ":"+ getMemberPath() ;
 	}
 }
