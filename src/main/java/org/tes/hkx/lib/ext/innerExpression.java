@@ -79,7 +79,7 @@ public class innerExpression extends innerVisitable implements IHkVisitable, IHk
 	
 	@Override
 	public String toString() {
-		return "Expression";
+		return "Expression: "+getExpression();
 	}
 
 }

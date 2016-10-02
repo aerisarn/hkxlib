@@ -105,6 +105,10 @@ public class hkbManualSelectorGenerator
         }
         return false;
     }
+    
+    public HkobjectType setGeneratorsAt(HkobjectType newGenerators, int index) {
+        return generators.set(index, newGenerators);
+    }
 
     @ObjectLink
     public boolean removeFromGenerators(HkobjectType generatorsToRemove) {

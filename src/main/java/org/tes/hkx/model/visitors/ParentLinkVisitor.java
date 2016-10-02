@@ -14,7 +14,7 @@ public class ParentLinkVisitor implements IHkParentVisitor<Void> {
 	@Override
 	public void visit(IHkVisitable obj, IHkVisitable parent) {
 		if (obj instanceof IHkParented) {
-			((IHkParented)obj).setParent(parent);
+			((IHkParented)obj).addParent(parent);
 		}
 	}
 

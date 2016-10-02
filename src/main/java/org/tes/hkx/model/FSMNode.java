@@ -51,27 +51,31 @@ public class FSMNode {
 		return null;
 	}
 
-	private hkbStateMachine findFSMParent(hkbStateMachine fsm) {
-		IHkVisitable parent = fsm.getParent();
-		while (parent != null && parent instanceof IHkParented) {
-			if (parent instanceof hkbStateMachine) {
-				return (hkbStateMachine) parent;
+	private void findFMSinParents(IHkVisitable v, Set<hkbStateMachine> resultSet) {
+		if (v instanceof IHkParented) {
+			IHkParented node = (IHkParented) v;
+			for (IHkVisitable parent : node.getParents()) {
+				if (parent instanceof hkbStateMachine) {
+					resultSet.add((hkbStateMachine) parent);
+				}
+				else
+					findFMSinParents(parent, resultSet);
 			}
-			parent = ((IHkParented) parent).getParent();
 		}
-		return null;
 	}
 
-	public hkbStateMachine getParent() {
-		return findFSMParent(fsm);
+	private Set<hkbStateMachine> findFSMParent(hkbStateMachine fsm) {
+		Set<hkbStateMachine> resultSet = new HashSet<>();
+		findFMSinParents(fsm,resultSet);
+		return resultSet;
 	}
 
 	public boolean removeState(hkbStateMachineStateInfo actualState) {
 		// unlink from parent
 		if (getState(actualState.getStateId()) == null)
 			return false;
-		hkbStateMachine parent = findFSMParent(fsm);
-		if (parent != null)
+		Set<hkbStateMachine> parents = findFSMParent(fsm);
+		for (hkbStateMachine parent : parents)
 			unlinkLowerState(parent, actualState);
 		// remove same state transition
 		if (fsm.getWildcardTransitions() != null) {

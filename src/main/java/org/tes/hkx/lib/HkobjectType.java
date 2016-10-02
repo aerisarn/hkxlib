@@ -8,7 +8,9 @@
 package org.tes.hkx.lib;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -63,16 +65,21 @@ public class HkobjectType implements IHkVisitable, IHkParented {
 	protected String signature;
 	
 	@XmlTransient
-	IHkVisitable parent;
+	Set<IHkVisitable> parents = new HashSet<>();
 	
 	@Override
-	public IHkVisitable getParent() {
-		return parent;
+	public Set<IHkVisitable> getParents() {
+		return parents;
 	}
 	
 	@Override
-	public void setParent(IHkVisitable parent) {
-		this.parent = parent;
+	public void addParent(IHkVisitable parent) {
+		parents.add(parent);
+	}
+	
+	@Override
+	public boolean removeParent(IHkVisitable parent) {
+		return parents.remove(parent);
 	}
 	
 
