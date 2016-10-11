@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import org.eclipse.persistence.oxm.annotations.XmlDiscriminatorValue;
@@ -370,4 +371,14 @@ public class hkbStateMachine
         return super.toString()+" ["+this.getName()+"]";
     }
 
+    @XmlTransient
+    public hkbStateMachineStateInfo findState(Integer stateId) {
+    	for (hkbStateMachineStateInfo state : states) {
+    		if (state.getStateId().equals(stateId.toString())) {
+    			return state;
+    		}
+    	}
+    	return null;
+    }
+    
 }

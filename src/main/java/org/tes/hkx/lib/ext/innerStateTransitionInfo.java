@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlType;
 
 import org.eclipse.persistence.oxm.annotations.XmlPath;
+import org.tes.hkx.model.FSMNode;
 import org.tes.hkx.model.IHkContainer;
 import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
@@ -222,6 +223,11 @@ public class innerStateTransitionInfo extends innerVisitable implements IHkConta
 
 	@Override
 	public String toString() {
+		hkbBehaviorGraph root = findParentWithClass(hkbBehaviorGraph.class);
+		hkbStateMachine fsmParent = findParentWithClass(hkbStateMachine.class);
+		if (root != null) {
+			return "Transition on "+root.getData().getStringData().getEventNamesAt(Integer.valueOf(getEventId()))+" to "+ fsmParent.findState(Integer.valueOf(getToStateId()))+" (nested "+getToNestedStateId()+")";
+		}
 		return "Transition on "+getEventId()+" to "+getToStateId()+" (nested "+getToNestedStateId()+")";
 	}
 }

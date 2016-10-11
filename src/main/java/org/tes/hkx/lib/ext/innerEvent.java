@@ -55,7 +55,13 @@ public class innerEvent extends innerVisitable implements IHkVisitable, IHkInner
 
 	@Override
 	public String toString() {
-		return "Event "+getId()+":"+getPayload();
+		hkbBehaviorGraph root = findParentWithClass(hkbBehaviorGraph.class);
+		if (root != null) {
+			int index = Integer.parseInt(getId());
+			if (index >= 0)
+				return "Event: " + root.getData().getStringData().getEventNamesAt(index) + " [Payload: " + getPayload() + "]";
+		}
+		return "Event " + getId() + ":" + getPayload();
 	}
 
 }

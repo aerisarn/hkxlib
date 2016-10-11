@@ -55,6 +55,6 @@ public class innerVariableRole extends innerVisitable implements IHkVisitable, I
 
 	@Override
 	public String toString() {
-		return "VariableRole";
+		return "VariableRole: "+getRole();
 	}
 }

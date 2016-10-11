@@ -1,11 +1,14 @@
 
 package org.tes.hkx.lib.ext;
 
+import java.util.Iterator;
+
 import javax.xml.bind.annotation.XmlType;
 
 import org.eclipse.persistence.oxm.annotations.XmlPath;
 import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
+import org.tes.hkx.model.IHkParented;
 import org.tes.hkx.model.IHkVisitable;
 import org.tes.hkx.model.IHkVisitor;
 import org.tes.hkx.model.innerVisitable;
@@ -43,6 +46,12 @@ public class innerEventInfo extends innerVisitable implements IHkVisitable, IHkI
 
 	@Override
 	public String toString() {
+		hkbBehaviorGraph root = findParentWithClass(hkbBehaviorGraph.class);
+		if (root != null) {
+			for (int i = 0; i < root.getData().getNumEventInfos(); i++)
+				if (root.getData().getEventInfosAt(i).equals(this))
+					return "EventInfo: " + root.getData().getStringData().getEventNamesAt(i) + " [" + i + "]";
+		}
 		return "EventInfo";
 	}
 }

@@ -90,6 +90,11 @@ public class hkbBoneWeightArray
         }
         return null;
     }
+    
+    public void clearBoneWeights() {
+    	numboneWeights = 0;
+        boneWeights.clear();
+    }
 
     @Override
     public<T >T accept(IHkVisitor<T> visitor) {

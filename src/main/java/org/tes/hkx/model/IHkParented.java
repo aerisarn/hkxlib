@@ -10,4 +10,8 @@ public interface IHkParented {
 	
 	boolean removeParent(IHkVisitable parent);
 
+	IHkParented findRoot(IHkParented child);
+	
+	<T> T findParentWithClass(Class<T> c);
+
 }

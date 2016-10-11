@@ -202,5 +202,45 @@ public class HkobjectType implements IHkVisitable, IHkParented {
 		setKey(toClone.getKey());
 		setSignature(toClone.getSignature());
 	}
+	
+	@Override
+	@XmlTransient
+	public IHkParented findRoot(IHkParented child) {
+		IHkParented p = null;
+		if (getParents().isEmpty())
+			return child;
+		for (IHkVisitable parent : child.getParents()) {
+			if (parent instanceof IHkParented) {
+				IHkParented pn = findRoot((IHkParented) parent);
+				if (pn != null) {
+					p = pn;
+				}
+			}
+		}
+		return p;
+	}
+	
+	@XmlTransient
+	private IHkParented findParentWithClass(IHkParented child, Class<?> c) {
+		IHkParented p = null;
+		if (getParents().isEmpty() && !child.getClass().equals(c))
+			return null;
+		if (child.getClass().equals(c))
+			return child; 
+		for (IHkVisitable parent : child.getParents()) {
+			if (parent instanceof IHkParented) {
+				IHkParented pn = findParentWithClass((IHkParented) parent,c);
+				if (pn != null) {
+					p = pn;
+				}
+			}
+		}
+		return p;
+	}
 
+	@Override
+	@XmlTransient
+	public <T> T findParentWithClass(Class<T> c) {
+		return (T) findParentWithClass(this, c);
+	}
 }

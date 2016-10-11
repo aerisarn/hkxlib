@@ -79,6 +79,10 @@ public class innerVariableBinding extends innerVisitable implements IHkVisitable
 
 	@Override
 	public String toString() {
-		return "VariableBinding "+getVariableIndex() + ":"+ getMemberPath() ;
+		hkbBehaviorGraph root = findParentWithClass(hkbBehaviorGraph.class);
+		if (root != null) {
+			return "Variable: " + root.getData().getStringData().getVariableNamesAt(Integer.valueOf(getVariableIndex())) + " [/" +getMemberPath()+ "]";
+		}
+		return "VariableBinding " + getVariableIndex() + ":" + getMemberPath();
 	}
 }
