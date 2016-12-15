@@ -79,6 +79,11 @@ public class innerTriggerInfo extends innerVisitable implements IHkVisitable, IH
 
 	@Override
 	public String toString() {
+		hkbBehaviorGraph root = findParentWithClass(hkbBehaviorGraph.class);
+		hkbStateMachine fsmParent = findParentWithClass(hkbStateMachine.class);
+		if (root != null && Integer.valueOf(getEnterEventId())>=0) {
+			return "Trigger: Enter "+root.getData().getStringData().getEventNamesAt(Integer.valueOf(getEnterEventId()))+" at "+getEnterTime()+ ", exit "+ fsmParent.findState(Integer.valueOf(getExitEventId()))+" at "+getExitTime();
+		}
 		return "TriggerInfo";
 	}
 }
