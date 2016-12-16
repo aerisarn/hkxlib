@@ -1,6 +1,7 @@
 package org.tes.hkx.model;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -29,16 +30,16 @@ public class HKProject {
 	private HkFilesFactory filesFactory = new HkFilesFactory();
 	private List<HkCharacterFile> characterFiles = new ArrayList<>();
 	// ragdoll is embedded into the skeleton for Skyrim
-	
-	//Files
+
+	// Files
 	private Map<HkCharacterFile, HkSkeletonFile> rigRagdollFiles = new HashMap<>();
 	private Multimap<HkCharacterFile, HkBehaviorFile> behaviorFiles = ArrayListMultimap.create();
 	private Multimap<String, HkBehaviorFile> behaviorFileNames = ArrayListMultimap.create();
 	private Multimap<HkCharacterFile, HkAnimationFile> animationFiles = ArrayListMultimap.create();
 
-	//Interface
+	// Interface
 	private Set<HkBehaviorGraph> behaviors = new HashSet();
-	
+
 	public HKProject() throws Exception {
 		projectFile = new HkProjectFile();
 	}
@@ -48,7 +49,7 @@ public class HKProject {
 	}
 
 	private String getPathFromHKX(String path) {
-		return path.replace(".hkx", ".xml").replace(".HKX", ".xml").replace("\\", File.separator);
+		return path.replace(".hkx", ".xml").replace(".HKX", ".xml").replace("\\", File.separator).toLowerCase();
 	}
 
 	private void scanForAdditionalBehaviors(HkBehaviorFile behaviorFile, HkCharacterFile characterFile)
@@ -57,9 +58,10 @@ public class HKProject {
 			if (bobj instanceof hkbBehaviorReferenceGenerator) {
 				hkbBehaviorReferenceGenerator p = (hkbBehaviorReferenceGenerator) bobj;
 				if (!behaviorFileNames.keys().contains(p.getBehaviorName())) {
-					HkBehaviorFile refBF = filesFactory.loadTypedFile(
-							new File(projectFileSource.getParent(), getPathFromHKX(p.getBehaviorName())),
-							HkBehaviorFile.class);
+					File rawAdditionalBehaviorFile = new File(projectFileSource.getParent(),
+							getPathFromHKX(p.getBehaviorName()));
+					HkBehaviorFile refBF = filesFactory.loadTypedFile(rawAdditionalBehaviorFile, HkBehaviorFile.class);
+					refBF.setFileName(rawAdditionalBehaviorFile.getAbsolutePath());
 					behaviors.add(new HkBehaviorGraph(refBF));
 					behaviorFiles.put(characterFile, refBF);
 					behaviorFileNames.put(p.getBehaviorName(), refBF);
@@ -74,25 +76,34 @@ public class HKProject {
 		projectFile = filesFactory.loadTypedFile(projectFileSource, HkProjectFile.class);
 
 		for (String characterPath : projectFile.getStringData().getCharacterFilenames()) {
-			characterFiles.add(filesFactory.loadTypedFile(
-					new File(projectFileSource.getParent(), getPathFromHKX(characterPath)), HkCharacterFile.class));
+			File rawCharacterFile = new File(projectFileSource.getParent(), getPathFromHKX(characterPath));
+			HkCharacterFile cf = filesFactory.loadTypedFile(rawCharacterFile, HkCharacterFile.class);
+			cf.setFileName(rawCharacterFile.getAbsolutePath());
+			characterFiles.add(cf);
 		}
 		for (HkCharacterFile characterFile : characterFiles) {
-			rigRagdollFiles
-					.put(characterFile,
-							filesFactory.loadTypedFile(
-									new File(projectFileSource.getParent(),
-											getPathFromHKX(characterFile.getStringData().getRigName())),
-									HkSkeletonFile.class));
-			HkBehaviorFile bf = filesFactory.loadTypedFile(new File(projectFileSource.getParent(),
-					getPathFromHKX(characterFile.getStringData().getBehaviorFilename())), HkBehaviorFile.class);
+			File rawSkeletonFile = new File(projectFileSource.getParent(),
+					getPathFromHKX(characterFile.getStringData().getRigName()));
+			HkSkeletonFile sf = filesFactory.loadTypedFile(rawSkeletonFile, HkSkeletonFile.class);
+			sf.setFileName(rawSkeletonFile.getAbsolutePath());
+			rigRagdollFiles.put(characterFile, sf);
+			File rawBehaviorFile = new File(projectFileSource.getParent(),
+					getPathFromHKX(characterFile.getStringData().getBehaviorFilename()));
+			HkBehaviorFile bf = filesFactory.loadTypedFile(rawBehaviorFile, HkBehaviorFile.class);
+			bf.setFileName(rawBehaviorFile.getAbsolutePath());
 			behaviorFiles.put(characterFile, bf);
 			behaviors.add(new HkBehaviorGraph(bf));
 			scanForAdditionalBehaviors(bf, characterFile);
-//			for (String animationFile : characterFile.getStringData().getAnimationNames()) {
-//				animationFiles.put(characterFile, filesFactory.loadTypedFile(
-//						new File(projectFileSource.getParent(), getPathFromHKX(animationFile)), HkAnimationFile.class));
-//			}
+			for (String animationFile : characterFile.getStringData().getAnimationNames()) {
+				try {
+					File rawAnimationFile = new File(projectFileSource.getParent(), getPathFromHKX(animationFile));
+					HkAnimationFile af = filesFactory.loadTypedFile(rawAnimationFile, HkAnimationFile.class);
+					af.setFileName(rawAnimationFile.getAbsolutePath());
+					animationFiles.put(characterFile, af);
+				} catch (Exception e) {
+					continue;
+				}
+			}
 		}
 	}
 
