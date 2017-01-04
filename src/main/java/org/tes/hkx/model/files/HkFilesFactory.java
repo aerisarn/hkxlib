@@ -50,9 +50,9 @@ public class HkFilesFactory {
 			// Fix for double signature
 			o.setSignature(null);
 		}
-		root.accept(new ParentLinkVisitor(), null);
 		if (root == null)
 			throw new Exception("Malformed HKX file: Unable to find hkRootLevelContainer");
+		root.accept(new ParentLinkVisitor(), null);
 		return wrapper;
 	}
 
