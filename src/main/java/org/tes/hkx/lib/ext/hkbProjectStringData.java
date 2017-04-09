@@ -32,13 +32,11 @@ public class hkbProjectStringData
     implements IHkVisitable
 {
 
-    @XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
-    @XmlPath("hkparam[@name=\"animationFilenames\"]/text()")
+    @XmlElement(name = "hkparam[@name=\"animationFilenames\"]/hkcstring", required = true, nillable = true)
     private ArrayList<String> animationFilenames;
     @XmlPath("hkparam[@name=\"animationFilenames\"]/@numelements")
     private Integer numanimationFilenames;
-    @XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
-    @XmlPath("hkparam[@name=\"behaviorFilenames\"]/text()")
+    @XmlElement(name = "hkparam[@name=\"behaviorFilenames\"]/hkcstring", required = true, nillable = true)
     private ArrayList<String> behaviorFilenames;
     @XmlPath("hkparam[@name=\"behaviorFilenames\"]/@numelements")
     private Integer numbehaviorFilenames;

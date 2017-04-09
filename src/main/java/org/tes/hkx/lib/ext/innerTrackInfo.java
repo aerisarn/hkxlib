@@ -3,11 +3,11 @@ package org.tes.hkx.lib.ext;
 
 import java.util.ArrayList;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.eclipse.persistence.oxm.annotations.XmlPath;
-import org.tes.hkx.lib.HkParenthesysVectorAdapter;
 import org.tes.hkx.model.IHkInnerObject;
 import org.tes.hkx.model.IHkParentVisitor;
 import org.tes.hkx.model.IHkVisitable;
@@ -18,15 +18,17 @@ import org.tes.hkx.model.innerVisitable;
 public class innerTrackInfo extends innerVisitable implements IHkVisitable, IHkInnerObject {
 
 	private String trackName;
-	@XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
-	@XmlPath("hkparam[@name=\"annotations\"]/text()")
-	private ArrayList<String> annotations;
+	//@XmlJavaTypeAdapter(HkParenthesysVectorAdapter.class)
+	//@XmlPath("hkparam[@name=\"annotations\"]/text()")
+	@XmlElement(name = "hkparam[@name=\"annotations\"]/hkobject", required = true, nillable = true)
+	@XmlList
+	private ArrayList<org.tes.hkx.lib.ext.innerAnnotation> annotations;
 	@XmlPath("hkparam[@name=\"annotations\"]/@numelements")
 	private Integer numannotations;
 
 	public innerTrackInfo() {
 		setTrackName("NPC Root [Root]");
-		annotations = new ArrayList<String>();
+		annotations = new ArrayList<org.tes.hkx.lib.ext.innerAnnotation>();
 		numannotations = 0;
 	}
 
@@ -44,15 +46,15 @@ public class innerTrackInfo extends innerVisitable implements IHkVisitable, IHkI
 		return numannotations;
 	}
 
-	public Iterable<String> getAnnotations() {
+	public Iterable<org.tes.hkx.lib.ext.innerAnnotation> getAnnotations() {
 		return annotations;
 	}
 
-	public String getAnnotationsAt(int index) {
+	public org.tes.hkx.lib.ext.innerAnnotation getAnnotationsAt(int index) {
 		return annotations.get(index);
 	}
 
-	public boolean addToAnnotations(String newAnnotations) {
+	public boolean addToAnnotations(org.tes.hkx.lib.ext.innerAnnotation newAnnotations) {
 		if (annotations.add(newAnnotations)) {
 			numannotations += 1;
 			return true;
@@ -68,8 +70,8 @@ public class innerTrackInfo extends innerVisitable implements IHkVisitable, IHkI
 		return false;
 	}
 
-	public String removeFromAnnotationsAt(int index) {
-		String toRemove;
+	public org.tes.hkx.lib.ext.innerAnnotation removeFromAnnotationsAt(int index) {
+		org.tes.hkx.lib.ext.innerAnnotation toRemove;
 		toRemove = annotations.remove(index);
 		if (!(null == toRemove)) {
 			numannotations += -1;

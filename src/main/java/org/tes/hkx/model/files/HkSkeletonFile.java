@@ -16,23 +16,26 @@ public class HkSkeletonFile extends HkFile {
 	public static final String variantClassName = "Animation Container";
 	public static final String variantName = "Animation Container";
 	private String fileName;
-	
-	hkaAnimationContainer animationContainer;
+
+	hkaAnimationContainer animationContainer = null;
 
 	private void setup() throws Exception {
-		HkobjectType variant = getRoot().getNamedVariants().iterator().next().getVariant();
-		if (!(variant instanceof hkaAnimationContainer)) {
-			throw new Exception("Expected object class: hkaAnimationContainer. found: "
-					+ getRoot().getNamedVariants().iterator().next().getVariant().getClazz());
+		for (innerFieldVariants variant : getRoot().getNamedVariants()) {
+			HkobjectType ivariant = variant.getVariant();
+			if (ivariant instanceof hkaAnimationContainer) {
+				animationContainer = getTypedObject(ivariant.getKey());	
+			}
 		}
-		animationContainer = getTypedObject(variant.getKey());
+		if (animationContainer==null)
+		throw new Exception("Expected object class: hkaAnimationContainer. found: "
+				+ getRoot().getNamedVariants().iterator().next().getVariant().getClazz());
 	}
 
 	public HkSkeletonFile(JAXBElement<HkpackfileType> source) throws Exception {
 		super(source);
 		setup();
 	}
-	
+
 	public HkSkeletonFile() throws NegativeArraySizeException, JAXBException {
 		innerFieldVariants variant = new innerFieldVariants();
 		variant.setClassName(variantClassName);
@@ -44,7 +47,7 @@ public class HkSkeletonFile extends HkFile {
 		startingKey = skeletonStartingKey;
 		resetKeys();
 	}
-	
+
 	public HkSkeletonFile(String name) throws NegativeArraySizeException, JAXBException {
 		this();
 		setFileName(name);

@@ -50,7 +50,7 @@ public class innerEventInfo extends innerVisitable implements IHkVisitable, IHkI
 		if (root != null) {
 			for (int i = 0; i < root.getData().getNumEventInfos(); i++)
 				if (root.getData().getEventInfosAt(i).equals(this))
-					return "EventInfo: " + root.getData().getStringData().getEventNamesAt(i) + " [" + i + "]";
+					return "EventInfo: " + root.getData().getStringData().getEventNamesAt(i) + " [" + i + "] flags:" + getFlags();
 		}
 		return "EventInfo";
 	}

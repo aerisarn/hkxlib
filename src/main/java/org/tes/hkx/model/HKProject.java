@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.io.FilenameUtils;
 import org.tes.hkx.lib.HkobjectType;
 import org.tes.hkx.lib.ext.hkbBehaviorReferenceGenerator;
 import org.tes.hkx.model.files.HkAnimationFile;
@@ -28,6 +29,11 @@ public class HKProject {
 	private HkProjectFile projectFile;
 	private File projectFileSource;
 	private HkFilesFactory filesFactory = new HkFilesFactory();
+	
+	public HkFilesFactory getFilesFactory() {
+		return filesFactory;
+	}
+
 	private List<HkCharacterFile> characterFiles = new ArrayList<>();
 	// ragdoll is embedded into the skeleton for Skyrim
 
@@ -49,7 +55,7 @@ public class HKProject {
 	}
 
 	private String getPathFromHKX(String path) {
-		return path.replace(".hkx", ".xml").replace(".HKX", ".xml").replace("\\", File.separator).toLowerCase();
+		return path.replace(".hkx", ".xml").replace(".HKX", ".xml").replace("\\", File.separator)/*.toLowerCase()*/;
 	}
 
 	private void scanForAdditionalBehaviors(HkBehaviorFile behaviorFile, HkCharacterFile characterFile)
@@ -74,6 +80,7 @@ public class HKProject {
 	public HKProject(File projectFileSource) throws Exception {
 		this.projectFileSource = projectFileSource;
 		projectFile = filesFactory.loadTypedFile(projectFileSource, HkProjectFile.class);
+		projectFile.setFileName(projectFileSource.getAbsolutePath());
 
 		for (String characterPath : projectFile.getStringData().getCharacterFilenames()) {
 			File rawCharacterFile = new File(projectFileSource.getParent(), getPathFromHKX(characterPath));
@@ -82,6 +89,19 @@ public class HKProject {
 			characterFiles.add(cf);
 		}
 		for (HkCharacterFile characterFile : characterFiles) {
+			
+			for (String animationFile : projectFile.getStringData().getAnimationFilenames()) {
+				try {
+					File rawAnimationFile = new File(FilenameUtils.concat(projectFileSource.getParent(), getPathFromHKX(animationFile)));
+					HkAnimationFile af = filesFactory.loadTypedFile(rawAnimationFile, HkAnimationFile.class);
+					af.setFileName(rawAnimationFile.getAbsolutePath());
+					animationFiles.put(characterFile, af);
+				} catch (Exception e) {
+					e.printStackTrace();
+					continue;
+				}
+			}
+			
 			File rawSkeletonFile = new File(projectFileSource.getParent(),
 					getPathFromHKX(characterFile.getStringData().getRigName()));
 			HkSkeletonFile sf = filesFactory.loadTypedFile(rawSkeletonFile, HkSkeletonFile.class);

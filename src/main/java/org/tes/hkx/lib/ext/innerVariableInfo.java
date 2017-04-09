@@ -87,7 +87,7 @@ public class innerVariableInfo extends innerVisitable implements IHkContainer, I
 		if (root != null) {
 			for (int i = 0; i < root.getData().getNumVariableInfos(); i++)
 				if (root.getData().getVariableInfosAt(i).equals(this))
-					return "Variable: " + root.getData().getStringData().getVariableNamesAt(i) + " [" + i + "]";
+					return "Variable: " + root.getData().getStringData().getVariableNamesAt(i) + " [" + i + "]" + " Type: "+ getType() + " Role: "+ getRole();
 		}
 		return "VariableInfo";
 	}

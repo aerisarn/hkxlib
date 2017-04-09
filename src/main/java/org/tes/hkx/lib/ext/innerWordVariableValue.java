@@ -43,6 +43,6 @@ public class innerWordVariableValue extends innerVisitable implements IHkVisitab
 
 	@Override
 	public String toString() {
-		return "WordVariableValue";
+		return value;
 	}
 }
